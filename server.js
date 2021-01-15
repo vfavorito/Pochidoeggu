@@ -1,8 +1,8 @@
-
 //Dependencies
 let express = require("express");
 let handleBars = require("express-handlebars");
-
+let session = require("express-session")
+let passport = require("./config/passport");
 //server creation
 let app = express();
 let PORT = process.env.PORT || 8080;
@@ -17,6 +17,11 @@ app.set("view engine","handlebars");
 
 // set static folder for front end assets
 app.use(express.static("./public"));
+
+//keeping track of users login status 
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // seting up routing
 require("./routes/api-routes")(app);
