@@ -7,10 +7,15 @@ let db = require("../models");
 
 // letting passport know we are logging in with a username and password
 passport.use(new LocalStrategy(
+    {
+        usernameField: "username"
+    },
     (username, password, done) => {
-        Account.findOne({
-            username: username
-        }).then((error, account) => {
+         db.Account.findOne({
+             where:{
+                 username:username
+             }
+         }).then((error, account) => {
             // if there was an error with the query throw it
             if (error) {
                 throw error;
