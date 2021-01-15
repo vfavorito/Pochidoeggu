@@ -1,1 +1,1 @@
-const isAuthenticated = require("../config/middlewaare/isAuthenticated");
+const isAuthenticated = require("../config/middleware/isAuthenticated");
