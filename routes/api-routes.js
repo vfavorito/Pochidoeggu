@@ -21,7 +21,7 @@ module.exports = function(app) {
       password: req.body.data.password
     })
       .then(function() {
-        res.redirect(307, "login.html");
+        res.render("member",{});
       })
       .catch(function(err) {
         console.log(err)

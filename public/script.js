@@ -11,12 +11,8 @@ $("#loginSubmit").on("click", function(event) {
     // Send the POST request.
     $.post("/api/signup", {
       data: user
-    }).then(
-      function(err,responce) {
-        if(err){alert(err)};
-        console.log("created user");
-        console.log(responce);
-      }
+     }).then(
+       $.get("/")
     );
   });
 
