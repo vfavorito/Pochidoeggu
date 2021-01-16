@@ -35,6 +35,7 @@ passport.use(new LocalStrategy(
 ));
 
 // boilerplate code for passport allows the user to maintain a status of logged in 
+//If authentication succeeds, a session will be established and maintained via a cookie set in the user's browser.
 passport.serializeUser((user, cb) => {
     cb(null, user);
 });

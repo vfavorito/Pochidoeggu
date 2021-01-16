@@ -1,7 +1,7 @@
 // bcrypt is used to scramble the passwords we save in database
 const bcrypt = require("bcryptjs");
 module.exports = function (sequelize, DataTypes) {
-    let Account = sequelize.define("Account", {
+    const Account = sequelize.define("Account", {
         username: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -11,7 +11,7 @@ module.exports = function (sequelize, DataTypes) {
             }
         },
         password: {
-            type: DataTypes.String,
+            type: DataTypes.STRING,
             allowNull: false
         }
     },

@@ -24,8 +24,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // seting up routing
-require("./routes/api-routes")(app);
-require("./routes/html-routes")(app);
+require("./routes/api-routes.js")(app);
+require("./routes/html-routes.js")(app);
 
 //require models for syncing
 let db = require("./models");
