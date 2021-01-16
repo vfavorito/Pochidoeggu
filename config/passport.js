@@ -3,45 +3,51 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 
 // bringing in all the files/models in our models folder
-let db = require("../models");
+const db = require("../models");
 
 // letting passport know we are logging in with a username and password
-passport.use(new LocalStrategy(
+passport.use(
+  new LocalStrategy(
     {
-        usernameField: "username"
+      usernameField: "username",
     },
     (username, password, done) => {
-         db.Account.findOne({
-             where:{
-                 username:username
-             }
-         }).then((error, account) => {
-            // if there was an error with the query throw it
-            if (error) {
-                throw error;
-            }
-            // if the query was good but the username passed in was not in our account model stop and return this
-            else if (!account) {
-                return done(null, false, { message: "Invalid Username" });
-            }
-            // if the query was good but the password passed in did not match the username stop and return this
-            else if (!account.validPassword(password)) {
-                return done(null, false, { message: "Invalid Password" });
-            }
-            // if the query was good and the username and password passed in match whats in our model return the account
-            return done(null, account);
-        });
+      db.Account.findOne({
+        where: {
+          username: username,
+        },
+      }).then((error, account) => {
+        // if there was an error with the query throw it
+        if (error) {
+          throw error;
+        }
+        // if the query was good but the username passed in was not in our account model stop and return this
+        else if (!account) {
+          return done(null, false, { message: "Invalid Username" });
+        }
+        // if the query was good but the password passed in did not match the username stop and return this
+        else if (!account.validPassword(password)) {
+          return done(null, false, { message: "Invalid Password" });
+        }
+        // if the query was good and the username and password passed in match whats in our model return the account
+        return done(null, account);
+      });
     }
-));
+  )
+);
 
+<<<<<<< HEAD
 // boilerplate code for passport allows the user to maintain a status of logged in 
 //If authentication succeeds, a session will be established and maintained via a cookie set in the user's browser.
+=======
+// boilerplate code for passport allows the user to maintain a status of logged in
+>>>>>>> c2c3a9f0a5ef5a3be2d6d6bc2929e87ce5a9edbb
 passport.serializeUser((user, cb) => {
-    cb(null, user);
+  cb(null, user);
 });
 
 passport.deserializeUser((obj, cb) => {
-    cb(null, obj);
+  cb(null, obj);
 });
 
 // Exporting configured passport
