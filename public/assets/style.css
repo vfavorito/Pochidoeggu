@@ -1,0 +1,19 @@
+.login_body {
+  height: 100%;
+  max-width: 100%;
+  margin: 0 0 67px 0;
+  padding: 0;
+  background: url("https://imgur.com/ZmDkgUj") no-repeat center center fixed;
+  background-image: url("https://imgur.com/ZmDkgUj");
+  background-size: cover;
+}
+
+.dashboard_body {
+  height: 100%;
+  max-width: 100%;
+  margin: 0 0 67px 0;
+  padding: 0;
+  background: url("https://imgur.com/a/Vh5xVT6") no-repeat center center fixed;
+  background-image: url("https://imgur.com/a/Vh5xVT6");
+  background-size: cover;
+}
