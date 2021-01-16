@@ -11,5 +11,5 @@ services:
   - mysql
 before_install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS testdb;'
-# script:
-#   - npm run lint
+script:
+  - npm run lint
