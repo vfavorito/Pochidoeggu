@@ -24,7 +24,7 @@ module.exports = function (sequelize, DataTypes) {
     };
     // this is saying before a new account is stored in db take their password and scramble it
     Account.addHook("beforeCreate", (account) => {
-        account.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null)
+        account.password = bcrypt.hashSync(account.password, bcrypt.genSaltSync(10), null)
     });
     return Account
 }

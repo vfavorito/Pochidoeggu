@@ -9,8 +9,7 @@ $("#loginSubmit").on("click", function(event) {
     };
     console.log(user);
     // Send the POST request.
-    $.ajax("/api/signup", {
-      type: "POST",
+    $.post("/api/signup", {
       data: user
     }).then(
       function(err,responce) {
