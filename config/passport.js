@@ -12,17 +12,16 @@ passport.use(
       usernameField: "username",
     },
     (username, password, done) => {
+      console.log(username);
+      console.log(password);
       db.Account.findOne({
         where: {
           username: username,
         },
-      }).then((error, account) => {
-        // if there was an error with the query throw it
-        if (error) {
-          throw error;
-        }
+      }).then((account) => {
+        console.log(account);
         // if the query was good but the username passed in was not in our account model stop and return this
-        else if (!account) {
+        if (!account) {
           return done(null, false, { message: "Invalid Username" });
         }
         // if the query was good but the password passed in did not match the username stop and return this
