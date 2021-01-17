@@ -7,6 +7,7 @@ const db = require("../models");
 
 // letting passport know we are logging in with a username and password
 passport.use(
+  //-----------------------------------step 3 takes userData and verifys the username and password field is in our model then go back to api-routes
   new LocalStrategy(
     {
       usernameField: "username",
@@ -16,13 +17,9 @@ passport.use(
         where: {
           username: username,
         },
-      }).then((error, account) => {
-        // if there was an error with the query throw it
-        if (error) {
-          throw error;
-        }
+      }).then((account) => {
         // if the query was good but the username passed in was not in our account model stop and return this
-        else if (!account) {
+        if (!account) {
           return done(null, false, { message: "Invalid Username" });
         }
         // if the query was good but the password passed in did not match the username stop and return this
