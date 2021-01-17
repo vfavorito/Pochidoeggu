@@ -30,7 +30,6 @@ $(document).ready(() => {
     }).then(() => {
       window.location.replace("/");
       alert("Account Added");
-      // If there's an error, log the error
     });
   };
 });

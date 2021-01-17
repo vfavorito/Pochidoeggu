@@ -14,13 +14,13 @@ $(document).ready(() => {
       return;
     }
 
-    // If we have a username and password we run the loginUser function and clear the form
+    // If we have a username and password we run the login function and clear the form
     login(userData);
     loginUser.val("");
     loginPass.val("");
   });
 
-  // loginUser does a post to our "api/login" route and if successful, redirects us to the login page
+  // login does a post to our "api/login" route and if successful, redirects us to dashboard page
   const login = function (userData) {
     // ------------------------------------------step 1 sends data from html to api-routes
     console.log(userData);
