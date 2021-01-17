@@ -12,7 +12,9 @@ $("#loginSubmit").on("click", function(event) {
     $.post("/api/signup", {
       data: user
      }).then(
-       $.get("/")
+       $.get("/login",function(){})
+        
+      
     );
   });
 

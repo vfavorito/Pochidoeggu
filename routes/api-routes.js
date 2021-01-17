@@ -21,7 +21,7 @@ module.exports = function(app) {
       password: req.body.data.password
     })
       .then(function() {
-        res.render("member",{});
+        res.render("member",);
       })
       .catch(function(err) {
         console.log(err)

@@ -36,12 +36,9 @@ passport.use(
   )
 );
 
-<<<<<<< HEAD
 // boilerplate code for passport allows the user to maintain a status of logged in 
 //If authentication succeeds, a session will be established and maintained via a cookie set in the user's browser.
-=======
-// boilerplate code for passport allows the user to maintain a status of logged in
->>>>>>> c2c3a9f0a5ef5a3be2d6d6bc2929e87ce5a9edbb
+
 passport.serializeUser((user, cb) => {
   cb(null, user);
 });

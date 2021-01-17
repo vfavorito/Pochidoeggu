@@ -28,6 +28,8 @@ app.use(passport.session());
 // seting up routing
 require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
+// let routes = require("./routes/")
+// app.use(routes);
 
 //require models for syncing
 const db = require("./models");
