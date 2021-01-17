@@ -10,8 +10,8 @@ APIrouter.post("/api/signup", (req, res) => {
     username: req.body.username,
     password: req.body.password,
   })
-    .then((res) => {
-      console.log(res);
+    .then(() => {
+      res.render("login");
     })
     .catch((err) => {
       console.log(err);
@@ -19,10 +19,7 @@ APIrouter.post("/api/signup", (req, res) => {
     });
 });
 APIrouter.post("/api/login", passport.authenticate("local"), (req, res) => {
-  res.json({
-    username: req.account.username,
-    id: req.account.id,
-  });
+  res.render("dashboard");
 });
 
 module.exports = APIrouter;
