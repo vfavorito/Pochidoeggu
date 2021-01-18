@@ -4,5 +4,5 @@ module.exports = function (req, res, next) {
     return next();
   }
   // If the user isn't logged in send the homepage
-  return res.redirect("/");
+  return res.redirect("/signup");
 };

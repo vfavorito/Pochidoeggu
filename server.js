@@ -3,6 +3,8 @@ const express = require("express");
 const handleBars = require("express-handlebars");
 const session = require("express-session");
 const passport = require("./config/passport");
+const HTMLroutes = require("./routes/html-routes");
+const APIroutes = require("./routes/api-routes");
 //server creation
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -26,11 +28,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // seting up routing
-require("./routes/api-routes.js")(app);
-require("./routes/html-routes.js")(app);
-// let routes = require("./routes/")
-// app.use(routes);
-
+app.use(HTMLroutes);
+app.use(APIroutes);
 //require models for syncing
 const db = require("./models");
 

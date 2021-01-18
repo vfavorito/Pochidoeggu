@@ -1,52 +1,30 @@
-
-// Requiring our models and passport as we've configured it
 const db = require("../models");
 const passport = require("../config/passport");
-module.exports = function(app) {
-  // Using the passport.authenticate middleware with our local strategy.
-  // If the user has valid login credentials, send them to the members page.
-  // Otherwise the user will be sent an error
-  app.post("/api/login", passport.authenticate("local"), function(req, res) {
-    res.json(req.user);
-  });
 
-  // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
-  // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
-  // otherwise send back an error
-  app.post("/api/signup", function(req, res) {
-    console.log("in api-routes");
-    console.log(req.body);
-    db.Account.create({
-      userName: req.body.data.userName,
-      password: req.body.data.password
+const express = require("express");
+const APIrouter = express.Router();
+
+APIrouter.post("/api/signup", (req, res) => {
+  db.Account.create({
+    username: req.body.username,
+    password: req.body.password,
+  })
+    .then(() => {
+      res.render("login");
     })
-      .then(function() {
-        res.render("member",);
-      })
-      .catch(function(err) {
-        console.log(err)
-        res.status(401).json(err);
-      });
+    .catch((err) => {
+      console.log(err);
+      res.status(400).json(err);
+    });
+});
+APIrouter.post("/api/login", passport.authenticate("local"), (req, res) => {
+  //-------------------------------------------------------------step 2 sends the userData to passport.js
+  // res.render("dashboard");
+  res.json({
+    username: req.user.username,
+    id: req.user.id,
   });
+  //---------------------------------------------step 4 sends a response of the username and id of the account logged in then we go back to login.js
+});
 
-  // Route for logging user out
-  app.get("/logout", function(req, res) {
-    req.logout();
-    res.redirect("/");
-  });
-
-  // Route for getting some data about our user to be used client side
-  app.get("/api/user_data", function(req, res) {
-    if (!req.user) {
-      // The user is not logged in, send back an empty object
-      res.json({});
-    } else {
-      // Otherwise send back the user's email and id
-      // Sending back a password, even a hashed password, isn't a good idea
-      res.json({
-        email: req.user.username,
-        id: req.user.id
-      });
-    }
-  });
-};
+module.exports = APIrouter;
