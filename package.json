@@ -4,7 +4,8 @@
   "description": "knockoff tamagachi",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\"",
+    "lint": "eslint \"./**/*.js\""
   },
   "repository": {
     "type": "git",
@@ -24,12 +25,20 @@
   "homepage": "https://github.com/vfavorito/project2#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "eslint": "^7.18.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
     "express-session": "^1.17.1",
     "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
+    "prettier": "^2.2.1",
     "sequelize": "^6.3.5"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0"
   }
 }
