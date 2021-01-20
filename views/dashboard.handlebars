@@ -1,1 +1,85 @@
 <h1>Dashboard</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual-Pet-Sandbox</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ </head>
+ <style>
+ #myProgress {
+    width: 100%;
+    background-color: #ddd;
+  }
+  
+  #myBar {
+    width: 1%;
+    height: 30px;
+    background-color: #4CAF50;
+  }
+  </style>
+<body>
+
+    <button id="viewPetBtn">
+        View Pet
+    </button>
+    <div id="petStatusDiv"></div>
+
+    <br>
+    <br>
+
+    <img id="sleepCat">
+    
+    <div id="food"></div>
+
+    
+    <button id="eat">Eat</button>
+    <button id="play">Play</button>
+    <br>
+    <br>
+
+    <h1>Energy</h1>
+
+<div id="myProgress">
+  <div id="myBar"></div>
+</div>
+
+<h1>Mood</h1>
+
+<div id="myProgress">
+  <div id="myBar"></div>
+</div>
+
+<br>
+<button onclick="move()">Click Me</button> 
+<script>
+var i = 0;
+function move() {
+  if (i == 0) {
+    i = 1;
+    var elem = document.getElementById("myBar");
+    var width = 1;
+    var id = setInterval(frame, 10);
+    function frame() {
+      if (width >= 100) {
+        clearInterval(id);
+        i = 0;
+      } else {
+        width++;
+        elem.style.width = width + "%";
+      }
+    }
+  }
+}
+</script>
+
+    <script src="actions.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+
+
+</body>
+
+</html>
