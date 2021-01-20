@@ -25,6 +25,7 @@ $(document).ready(() => {
     // ------------------------------------------step 1 sends data from html to api-routes
     console.log(userData);
     $.post("/api/login", userData).then(() => {
+      console.log(userdat);
       //-----------------------------------------step 5 triggers html-route by going to localhost:8080/dashboard
       window.location.replace("/dashboard");
     });

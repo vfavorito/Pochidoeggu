@@ -18,7 +18,7 @@ HTMLrouter.get("/dashboard", isAuthenticated, (req, res) => {
     where: {
       id: req.body.id,
     },
-  }).then((data)=>{
+  }).then((data) => {
     res.render("dashboard", data);
   });
 });

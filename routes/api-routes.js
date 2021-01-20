@@ -5,6 +5,7 @@ const express = require("express");
 const APIrouter = express.Router();
 
 APIrouter.post("/api/signup", (req, res) => {
+  console.log(req.body);
   db.Account.create({
     username: req.body.username,
     password: req.body.password,

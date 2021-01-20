@@ -2,7 +2,7 @@
 const bcrypt = require("bcryptjs");
 module.exports = function (sequelize, DataTypes) {
   const Account = sequelize.define("Account", {
-    userName: {
+    username: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
@@ -14,13 +14,23 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    petname: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    mood: {
+      type: DataTypes.INT,
+    },
+    moodUpdate: {
+      type: DataTypes.STRING,
+    },
   });
   // association for creatures
   Account.associate = function (models) {
     Account.hasMany(models.Creature, {
       onDelete: "cascade",
     });
-  }
+  };
   // adding a prototype function to the model to be used in the localStrategy for passport in passport.js file
   Account.prototype.validPassword = function (password) {
     return bcrypt.compareSync(password, this.password);
