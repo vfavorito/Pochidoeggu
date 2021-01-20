@@ -1,23 +1,33 @@
 <html>
 
-
-
 <body class="sign_up">
-
     <h1>ポーチドエッグ</h1>
     <h2>Pōchidoeggu</h2>
-    <p>Sign UP</p>
+
     <form class="SignUp">
-        <div class="form-group">
-            <label for="SignUpUserName">USER Name:</label>
-            <input type="text" id="SignUpUserName" name="name">
-            <label for="SignUpPassword">Password:</label>
-            <input type="text" id="SignUpPassword" name="name">
+        <p>Sign UP!</p>
+        <div class="mb-3" class="form-group">
+            <!-----Kept class form-group from orig version-->
+            <label for="exampleInputEmail1" class="form-label" for="SignUpUserName"></label>USER Name:</label>
+            <!---Kept
+            for="SignUpUserName"> from orig version"-->
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" type="text"
+                id="SignUpUserName" name="name">
+            <!--Kept type="text" id="SignUpUserName" name="name"-->
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
         </div>
-
-        <button type="submit">Create Account</button>
-
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label" for="SignUpPassword">Password</label>
+            <!--Kept
+            for="LoginPassword"-->
+            <input type="password" class="form-control" id="exampleInputPassword1" type="text" id="SignUpPassword"
+                name="name">
+            <!--Kept type="text" id="SignUpPassword" name="name"--->
+        </div>
+        <button type="submit" class="btn btn-primary" type="submit">Create Account</button>
+        <!--Kept type="submit"--->
     </form>
+
 </body>
 
 </html>
