@@ -72,3 +72,8 @@ input {
   font-size: 40px;
   color: rgb(183, 200, 219);
 }
+#btnColor {
+  background-color: rgb(183, 200, 219);
+  border-color: rgb(183, 200, 219);
+  font-color: #fff;
+}
