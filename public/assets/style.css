@@ -1,19 +1,43 @@
+/* html {
+  position: relative;
+  min-height: 100%;
+} */
+/* 
+body {
+  height: 100%;
+  max-width: 100%;
+} */
+
 .login_body {
   height: 100%;
   max-width: 100%;
-  margin: 0 0 67px 0;
-  padding: 0;
-  background: url("https://imgur.com/ZmDkgUj") no-repeat center center fixed;
-  background-image: url("https://imgur.com/ZmDkgUj");
+  margin: auto;
+  background: url("https://i.imgur.com/ZmDkgUj.jpg") no-repeat center center
+    fixed;
+  background-image: url("https://i.imgur.com/ZmDkgUj.jpg");
   background-size: cover;
 }
 
 .dashboard_body {
-  height: 100%;
-  max-width: 100%;
-  margin: 0 0 67px 0;
-  padding: 0;
-  background: url("https://imgur.com/a/Vh5xVT6") no-repeat center center fixed;
-  background-image: url("https://imgur.com/a/Vh5xVT6");
+  height: 100vh;
+  /* width: 100%; */
+  margin: auto;
+  background: url("https://i.imgur.com/0nUlet8.jpg") no-repeat center center
+    fixed;
+  background-image: url("https://i.imgur.com/0nUlet8.jpg");
   background-size: cover;
+}
+
+.pet_info {
+  position: absolute;
+  bottom: 75px;
+  width: 100%;
+  height: 100px;
+  background-color: whitesmoke;
+  /* margin-bottom: 30px; */
+}
+
+.pet_text {
+  padding-top: 10px;
+  text-align: center;
 }
