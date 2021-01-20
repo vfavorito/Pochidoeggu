@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "password",
+    "password": "fire",
     "database": "project2",
     "host": "localhost",
     "port":3306,

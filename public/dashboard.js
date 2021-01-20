@@ -31,9 +31,19 @@ $(document).ready(() => {
 
   function feedMe() {
     const food1 = $("#food");
-    food1.prepend("<img src=../public/assets/images/fish.JPG>");
-    sleepCat.attr("src", "../public/assets/images/cat1.png");
+    food1.prepend("<img src=./assets/images/fish.JPG");
+    sleepCat.attr("src", "./assets/images/cat1.png");
     const lastFeed = currentTime;
     console.log(lastFeed);
+  }
+
+  const playBtn = $("#eat");
+  playBtn.on("click", () => {
+    playFunction();
+    petStatus.text(petHappy[2]);
+  });
+
+  function playFunction(){
+    alert("This will display a game... to come tomorrow afternoon!");
   }
 });
