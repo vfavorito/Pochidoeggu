@@ -19,19 +19,11 @@ APIrouter.post("/api/signup", (req, res) => {
     });
 });
 APIrouter.post("/api/login", passport.authenticate("local"), (req, res) => {
-  res
-    .json({
-      username: req.user.username,
-      id: req.user.id,
-    })
-    //-------------------------------------------------------------step 2 sends the userData to passport.js
-    .then(() => {
-      res.render("dashboard");
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(400).json(err);
-    });
+  //-------------------------------------------------------------step 2 sends the userData to passport.js
+  res.json({
+    username: req.user.username,
+    id: req.user.id,
+  });
   //---------------------------------------------step 4 sends a response of the username and id of the account logged in then we go back to login.js
 });
 module.exports = APIrouter;

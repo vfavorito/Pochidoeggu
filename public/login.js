@@ -11,6 +11,7 @@ $(document).ready(() => {
       password: loginPass.val().trim(),
     };
     if (!userData.username || !userData.password) {
+      alert("Please enter your username and password!");
       return;
     }
 
@@ -30,7 +31,7 @@ $(document).ready(() => {
         //-----------------------------------------step 5 triggers html-route by going to localhost:8080/dashboard
       })
       .fail(() => {
-        alert("bad login");
+        alert("Login Not Found");
       });
   };
 });
