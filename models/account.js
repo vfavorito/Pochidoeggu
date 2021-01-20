@@ -15,6 +15,12 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
     },
   });
+  // association for creatures
+  Account.associate = function (models) {
+    Account.hasMany(models.Creature, {
+      onDelete: "cascade",
+    });
+  }
   // adding a prototype function to the model to be used in the localStrategy for passport in passport.js file
   Account.prototype.validPassword = function (password) {
     return bcrypt.compareSync(password, this.password);

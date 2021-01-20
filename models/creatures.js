@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
   const Creature = sequelize.define(
-    "creature",
+    "Creature",
     {
       name: {
         type: DataTypes.STRING,
@@ -35,5 +35,12 @@ module.exports = function (sequelize, DataTypes) {
       freezeTableName: true,
     }
   );
+  Creature.associate = function (models) {
+    Creature.belongsTo(models.Account, {
+      foreignKey: {
+        allowNull: false,
+      },
+    });
+  };
   return Creature;
 };
