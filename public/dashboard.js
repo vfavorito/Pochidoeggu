@@ -68,3 +68,10 @@ $(document).ready(() => {
     }, setTime);
   }
 });
+const catEl = document.querySelector(".cat");
+const btnRoll = document.querySelector(".btnMove");
+
+btnRoll.addEventListener("click", () => {
+  catEl.classList.toggle("rotator");
+  console.log("You clicked");
+});
