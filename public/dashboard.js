@@ -48,12 +48,13 @@ $(document).ready(() => {
   });
 
   function feedMe() {
-    const food1 = $("#food");
-    food1.prepend("<img src=./assets/images/fish.JPG>");
+    //const food1 = $("#food");
+    //food1.prepend("<img src=./assets/images/fish.JPG>");
     sleepCat.attr("src", "./assets/images/cat1.png");
     const lastFeed = currentTime;
     petStatus.text(petHappy[1]);
     console.log(lastFeed);
+    moodTimer(3000);
   }
 
   const playBtn = $("#play");
@@ -61,6 +62,7 @@ $(document).ready(() => {
     //playFunction();
     petStatus.text(petHappy[2]);
     increaseBar(8);
+    moodTimer(2000);
   });
 
   /*function playFunction() {
@@ -71,4 +73,17 @@ $(document).ready(() => {
   // function increaseMood(MoodLevel) {
   //   moodBar.width(MoodLevel);
   // }
+
+  function moodTimer(setTime) {
+    setInterval(() => {
+      increaseBar(0);
+    }, setTime);
+  }
+});
+const catEl = document.querySelector(".cat");
+const btnRoll = document.querySelector(".btnMove");
+
+btnRoll.addEventListener("click", () => {
+  catEl.classList.toggle("rotator");
+  console.log("You clicked");
 });
