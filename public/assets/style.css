@@ -32,7 +32,6 @@ body {
   position: absolute;
   bottom: 75px;
   width: 100%;
-  height: 100px;
   background-color: whitesmoke;
   /* margin-bottom: 30px; */
 }
@@ -88,4 +87,15 @@ input {
   background-color: rgb(183, 200, 219);
   border-color: rgb(183, 200, 219);
   color: #fff;
+}
+
+#myProgress {
+  width: 100%;
+  background-color: #ddd;
+}
+
+#myBar {
+  width: 1%;
+  height: 30px;
+  background-color: #4caf50;
 }
