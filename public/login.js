@@ -2,6 +2,7 @@ $(document).ready(() => {
   const loginForm = $(".LoginForm");
   const loginUser = $("#LoginUserName");
   const loginPass = $("#LoginPassword");
+  const signUpRedirect = $("#createAcc");
 
   // When the form is submitted, we validate there's a username and password entered
   loginForm.on("submit", (event) => {
@@ -34,4 +35,7 @@ $(document).ready(() => {
         alert("Login Not Found");
       });
   };
+  signUpRedirect.on("click", () => {
+    window.location.replace("/signup");
+  });
 });

@@ -4,6 +4,7 @@ $(document).ready(() => {
   const SignUpUser = $("#SignUpUserName");
   const SignUpPass = $("#SignUpPassword");
   const SignUpPetName = $("#petName");
+  const loginRedirect = $("#loginHere");
 
   // When the form is submitted, we validate there's a username and password entered
   SignUpForm.on("submit", (event) => {
@@ -41,4 +42,7 @@ $(document).ready(() => {
         alert("Username is unavailable");
       });
   };
+  loginRedirect.on("click", () => {
+    window.location.replace("/");
+  });
 });
