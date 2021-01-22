@@ -25,6 +25,7 @@
     <button id="viewPetBtn">
         View Pet
     </button>
+
     <div id="petStatusDiv"></div>
 
     <br>
@@ -41,29 +42,9 @@
 </div>
 
 <br>
-<button id="eat" onclick="move()">Eat</button> 
+<button id="eat">Eat</button> 
 <button id="play">Play</button>
     
-<script>
-var i = 0;
-function move() {
-  if (i == 0) {
-    i = 1;
-    var elem = document.getElementById("myBar");
-    var width = 1;
-    var id = setInterval(frame, 10);
-    function frame() {
-      if (width >= 100) {
-        clearInterval(id);
-        i = 0;
-      } else {
-        width++;
-        elem.style.width = width + "%";
-      }
-    }
-  }
-}
-</script>
     <script src="actions.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </body>
