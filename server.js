@@ -18,7 +18,7 @@ app.engine("handlebars", handleBars({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // set static folder for front end assets
-app.use(express.static("./public"));
+app.use(express.static("public"));
 
 //keeping track of users login status
 app.use(

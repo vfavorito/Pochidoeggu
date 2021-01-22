@@ -1,5 +1,4 @@
 const isAuthenticated = require("../config/middleware/isAuthenticated");
-
 const express = require("express");
 const HTMLrouter = express.Router();
 
