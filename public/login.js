@@ -11,6 +11,7 @@ $(document).ready(() => {
       password: loginPass.val().trim(),
     };
     if (!userData.username || !userData.password) {
+      alert("Please enter your username and password!");
       return;
     }
 
@@ -24,9 +25,13 @@ $(document).ready(() => {
   const login = function (userData) {
     // ------------------------------------------step 1 sends data from html to api-routes
     console.log(userData);
-    $.post("/api/login", userData).then(() => {
-      //-----------------------------------------step 5 triggers html-route by going to localhost:8080/dashboard
-      window.location.replace("/dashboard");
-    });
+    $.post("/api/login", userData)
+      .then(() => {
+        window.location.replace("/dashboard");
+        //-----------------------------------------step 5 triggers html-route by going to localhost:8080/dashboard
+      })
+      .fail(() => {
+        alert("Login Not Found");
+      });
   };
 });

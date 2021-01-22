@@ -1,10 +1,37 @@
-<h1>Sign UP</h1>
-<form class="SignUp">
-    <div class="form-group">
-        <label for="SignUpUserName">USER Name:</label>
-        <input type="text" id="SignUpUserName" name="name">
-        <label for="SignUpPassword">Password:</label>
-        <input type="text" id="SignUpPassword" name="name">
-    </div>
-    <button type="submit">Create Account</button>
-</form>
+<html>
+
+<body class="sign_up">
+    <h1>ポーチドエッグ</h1>
+    <h2>Pōchidoeggu</h2>
+
+    <form class="SignUp">
+        <p>Sign UP!</p>
+        <div class="mb-3" class="form-group">
+            <!-----Kept class form-group from orig version-->
+            <label class="form-label" for="SignUpUserName"></label>Username:</label>
+            <!---Kept
+            for="SignUpUserName"> from orig version"-->
+            <input type="text" class="form-control"type="text"
+                id="SignUpUserName" name="name">
+            <!--Kept type="text" id="SignUpUserName" name="name"-->
+        </div>
+        <div class="mb-3">
+
+            <label for="petName" class="form-label">Pet Name:</label>
+            <!--Kept
+            for=""-->
+            <input type="text" class="form-control" type="text" id="petName" name="name">
+            <label class="form-label" for="SignUpPassword">Password:</label>
+            <!--Kept
+            for="LoginPassword"-->
+            <input type="password" class="form-control" type="text" id="SignUpPassword"
+                name="name">
+            <!--Kept type="text" id="SignUpPassword" name="name"--->
+        </div>
+        <button type="submit" class="btn btn-primary" type="submit" id="btnColor">Create Account</button>
+        <!--Kept type="submit"--->
+    </form>
+
+</body>
+
+</html>

@@ -9,7 +9,7 @@ body {
 } */
 
 .login_body {
-  height: 100%;
+  height: 100vh;
   max-width: 100%;
   margin: auto;
   background: url("https://i.imgur.com/ZmDkgUj.jpg") no-repeat center center
@@ -41,4 +41,51 @@ body {
   padding-top: 10px;
   text-align: center;
   color: rgb(21, 39, 201);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+h1 {
+  font-size: 100px;
+  text-align: center;
+  color: #fff;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+h2 {
+  font-size: 80px;
+  text-align: center;
+  color: #fff;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6,
+      0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
+  }
+  to {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0073e6,
+      0 0 40px #0073e6, 0 0 50px #0073e6, 0 0 60px #0073e6, 0 0 70px #0073e6;
+  }
+}
+form {
+  max-width: 350px;
+  margin-top: 25px;
+  margin: auto;
+  align-content: center;
+  font-size: 20px;
+  color: rgb(183, 200, 219);
+}
+p {
+  font-size: 40px;
+  color: rgb(183, 200, 219);
+}
+input {
+  font-size: 40px;
+  color: rgb(183, 200, 219);
+}
+#btnColor {
+  background-color: rgb(183, 200, 219);
+  border-color: rgb(183, 200, 219);
+  color: #fff;
 }
