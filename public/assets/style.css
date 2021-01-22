@@ -95,6 +95,51 @@ input {
   color: #fff;
 }
 
+/* Style to walk cat starts here */
+@-webkit-keyframes move {
+  from {
+    right: 10%;
+  }
+  to {
+    right: 100%;
+  }
+}
+/* @keyframes move {
+  from {
+    right: 10%;
+  }
+  to {
+    right: 100%;
+  }
+} */
+
+.rotator {
+  text-decoration: none;
+  padding-right: 20px;
+  right: 5%;
+  position: absolute;
+  -webkit-animation: move 5s;
+  animation: move 5s;
+}
+
+.rotator img {
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  -ms-transition: all 1s ease-in-out;
+  border-radius: 60px;
+  transition-duration: 1s;
+}
+
+/* .rotator img:hover {
+  box-shadow: 0 3px 15px #000;
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: translate();
+} */
+/* Style to walk cat ends here */
 #myProgress {
   width: 100%;
   background-color: #ddd;
@@ -106,13 +151,13 @@ input {
   background-color: #2b28d3;
 }
 
-#petStatusDiv{
+#petStatusDiv {
   color: rgb(180, 149, 149);
   font-size: 36px;
-  background-color:rgb(224, 217, 217) ;
+  background-color: rgb(224, 217, 217);
 }
 
-#food{
+#food {
   width: 10%;
   height: 10%;
 }

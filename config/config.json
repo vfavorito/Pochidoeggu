@@ -1,7 +1,11 @@
 {
   "development": {
     "username": "root",
+<<<<<<< HEAD
     "password": "password",
+=======
+    "password": "Romina14",
+>>>>>>> a518747879f6a7cbd322ed35584936025fdc74f4
     "database": "project2",
     "host": "localhost",
     "port": 3306,

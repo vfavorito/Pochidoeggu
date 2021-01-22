@@ -2,7 +2,6 @@
 $(document).ready(() => {
   const currentTime = moment().format("MMMM Do YYYY, h:mm:ss a");
   const moodBar = $("#myBar");
-
   const petNeeds = [
     "I am hungy. Please feed me!",
     "I have too much energy! Lets go for a walk.",
@@ -58,6 +57,7 @@ $(document).ready(() => {
     const lastFeed = currentTime;
     petStatus.text(petHappy[1]);
     console.log(lastFeed);
+    moodTimer(3000);
   }
 
   const playBtn = $("#play");
@@ -65,6 +65,7 @@ $(document).ready(() => {
     //playFunction();
     petStatus.text(petHappy[2]);
     increaseMood("80%");
+    moodTimer(2000);
   });
 
   /*function playFunction() {
@@ -75,4 +76,17 @@ $(document).ready(() => {
   function increaseMood(MoodLevel) {
     moodBar.width(MoodLevel);
   }
+
+  function moodTimer(setTime) {
+    setInterval(() => {
+      increaseMood("0%");
+    }, setTime);
+  }
+});
+const catEl = document.querySelector(".cat");
+const btnRoll = document.querySelector(".btnMove");
+
+btnRoll.addEventListener("click", () => {
+  catEl.classList.toggle("rotator");
+  console.log("You clicked");
 });
