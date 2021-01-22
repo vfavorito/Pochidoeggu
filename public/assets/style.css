@@ -33,6 +33,10 @@
   background-size: cover;
 }
 
+.redirectBtn {
+  text-align: center;
+}
+
 h1 {
   font-size: 100px;
   text-align: center;
@@ -62,11 +66,11 @@ form {
   margin: auto;
   align-content: center;
   font-size: 20px;
-  color: rgb(183, 200, 219);
+  color: white;
 }
 p {
   font-size: 40px;
-  color: rgb(183, 200, 219);
+  color: white;
 }
 input {
   font-size: 40px;
