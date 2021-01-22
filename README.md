@@ -4,6 +4,4 @@
 
 Login page image credit to [Patrick Schneider](https://unsplash.com/photos/brcLcpPf3x4)
 
-Rustic image credit to [Frances Gunn](https://unsplash.com/photos/QcBAZ7VREHQ)
-
-Modern image credit to [Francessca Tosolini](https://unsplash.com/photos/tHkJAMcO3QE)
+Dashboard image credit to [Victor He](https://unsplash.com/photos/UJh7xpxcpGo)
