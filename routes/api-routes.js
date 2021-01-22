@@ -5,7 +5,6 @@ const express = require("express");
 const APIrouter = express.Router();
 
 APIrouter.post("/api/signup", (req, res) => {
-  console.log(req.body);
   db.Account.create({
     username: req.body.username,
     password: req.body.password,
@@ -21,12 +20,10 @@ APIrouter.post("/api/signup", (req, res) => {
 });
 APIrouter.post("/api/login", passport.authenticate("local"), (req, res) => {
   //-------------------------------------------------------------step 2 sends the userData to passport.js
-  // res.render("dashboard");
   res.json({
     username: req.user.username,
     id: req.user.id,
   });
   //---------------------------------------------step 4 sends a response of the username and id of the account logged in then we go back to login.js
 });
-
 module.exports = APIrouter;
