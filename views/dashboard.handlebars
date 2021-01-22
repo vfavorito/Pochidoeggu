@@ -1,80 +1,38 @@
-<h1>Dashboard</h1>
-
-<style>
-    #myProgress {
-        width: 100%;
-        background-color: #ddd;
-    }
-
-    #myBar {
-        width: 1%;
-        height: 30px;
-        background-color: #4CAF50;
-    }
-</style>
-
-<body>
-
-    <button id="viewPetBtn">
-        View Pet
-    </button>
-    <div id="petStatusDiv"></div>
-
-    <br>
-    <br>
-
-    <img id="sleepCat">
-    <a id="rotator"><img src="assets/images/cat1.png" class="cat" /></a>
-
-    <div id="food"></div>
-
-
-    <button id="eat">Eat</button>
-    <button id="play">Play</button>
-    <button class="btnMove">Play</button>
-    <br>
-    <br>
-
-    <h1>Energy</h1>
-
-    <div id="myProgress">
-        <div id="myBar"></div>
+<div class="dashboard_body">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <h4>Welcome {{username}}</h4>
+            </div>
+        </div>
+    </nav>
+    <br />
+    <div class="container">
+        <div id="petStatusDiv"></div>
+        <img src="images/cat2.png" id="sleepCat" />
+        <a id="rotator"><img src="assets/images/cat1.png" class="cat" /></a>
+        <div id="food"></div>
     </div>
+    <footer class="pet_info">
+        <div class="container-fluid">
+            <h3 class="pet_text">{{petname}}</h3>
+            <div class="row">
+                <div class="col-md-3 offset-md-3">
+                    <button type="button" class="btn btn-dark" id="eat">Feed</button>
+                </div>
+                <div class="col-md-3 offset-md-3">
+                    <button type="button" class="btn btn-dark, btnMove" id="play">Walk</button>
 
-    <h1>Mood</h1>
-
-    <div id="myProgress">
-        <div id="myBar"></div>
-    </div>
-
-    <br>
-    <button onclick="move()">Click Me</button>
-    <script>
-        var i = 0;
-        function move() {
-            if (i == 0) {
-                i = 1;
-                var elem = document.getElementById("myBar");
-                var width = 1;
-                var id = setInterval(frame, 10);
-                function frame() {
-                    if (width >= 100) {
-                        clearInterval(id);
-                        i = 0;
-                    } else {
-                        width++;
-                        elem.style.width = width + "%";
-                    }
-                }
-            }
-        }
-    </script>
-
-    <script src="actions.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-
-
-
-</body>
-
-</html>
+                </div>
+            </div>
+            <div class="row">
+                <h3>Mood</h3>
+                <div class="col-md-12">
+                    <div id="myProgress">
+                        <div id="myBar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>

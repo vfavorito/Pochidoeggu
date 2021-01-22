@@ -1,8 +1,7 @@
 .login_body {
-  height: 100%;
+  height: 100vh;
   max-width: 100%;
-  margin: 0 0 67px 0;
-  padding: 0;
+  margin: auto;
   background: url("https://i.imgur.com/ZmDkgUj.jpg") no-repeat center center
     fixed;
   background-image: url("https://i.imgur.com/ZmDkgUj.jpg");
@@ -10,11 +9,11 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
+
 .sign_up {
   height: 100%;
   max-width: 100%;
-  margin: 0 0 67px 0;
-  padding: 0;
+  margin: auto;
   background: url("https://i.imgur.com/ZmDkgUj.jpg") no-repeat center center
     fixed;
   background-image: url("https://i.imgur.com/ZmDkgUj.jpg");
@@ -22,15 +21,33 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
+
 .dashboard_body {
-  height: 100%;
-  max-width: 100%;
-  margin: 0 0 67px 0;
-  padding: 0;
-  background: url("https://i.imgur.com/0nUlet8.jpg") no-repeat center center
+  height: 100vh;
+  margin: auto;
+  background: url("https://i.imgur.com/XTxA8GT.jpg") no-repeat center center
     fixed;
-  background-image: url("https://i.imgur.com/0nUlet8.jpg");
+  background-image: url("https://i.imgur.com/XTxA8GT.jpg");
   background-size: cover;
+}
+
+.redirectBtn {
+  text-align: center;
+}
+
+.pet_info {
+  position: absolute;
+  bottom: 75px;
+  width: 100%;
+  background-color: whitesmoke;
+}
+
+.pet_text {
+  padding-top: 10px;
+  text-align: center;
+  color: rgb(21, 39, 201);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 h1 {
@@ -62,11 +79,11 @@ form {
   margin: auto;
   align-content: center;
   font-size: 20px;
-  color: rgb(183, 200, 219);
+  color: white;
 }
 p {
   font-size: 40px;
-  color: rgb(183, 200, 219);
+  color: white;
 }
 input {
   font-size: 40px;
@@ -87,14 +104,14 @@ input {
     right: 100%;
   }
 }
-@keyframes move {
+/* @keyframes move {
   from {
     right: 10%;
   }
   to {
     right: 100%;
   }
-}
+} */
 
 .rotator {
   text-decoration: none;
@@ -114,12 +131,33 @@ input {
   transition-duration: 1s;
 }
 
-.rotator img:hover {
+/* .rotator img:hover {
   box-shadow: 0 3px 15px #000;
   -webkit-transform: rotate(360deg);
   -moz-transform: rotate(360deg);
   -o-transform: rotate(360deg);
   -ms-transform: rotate(360deg);
   transform: translate();
-}
+} */
 /* Style to walk cat ends here */
+#myProgress {
+  width: 100%;
+  background-color: #ddd;
+}
+
+#myBar {
+  width: 1%;
+  height: 30px;
+  background-color: #2b28d3;
+}
+
+#petStatusDiv {
+  color: rgb(180, 149, 149);
+  font-size: 36px;
+  background-color: rgb(224, 217, 217);
+}
+
+#food {
+  width: 10%;
+  height: 10%;
+}
