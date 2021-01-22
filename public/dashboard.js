@@ -1,6 +1,5 @@
 $(document).ready(() => {
   const currentTime = moment().format("MMMM Do YYYY, h:mm:ss a");
-  const sleepCat = $("#sleepCat");
   const moodBar = $("#myBar");
 
   const petNeeds = [
@@ -15,15 +14,20 @@ $(document).ready(() => {
   ];
 
   //display the virtual pets need
-  const viewPet = $("#viewPetBtn");
+  //const viewPet = $("#viewPetBtn");
   const petStatus = $("#petStatusDiv");
+  const sleepCat = $("#sleepCat");
+  sleepCat.attr("src", "./assets/images/cat2.png");
+  petStatus.text(petNeeds[0]);
+  increaseMood("0%");
 
-  //this function will take the user to their own page
+  /*
   viewPet.on("click", () => {
     petStatus.text(petNeeds[0]);
     sleepCat.attr("src", "./assets/images/cat2.png");
     increaseMood("0%");
   });
+  */
 
   const eatBtn = $("#eat");
   eatBtn.on("click", () => {
@@ -34,7 +38,7 @@ $(document).ready(() => {
 
   function feedMe() {
     const food1 = $("#food");
-    food1.prepend("<img src=./assets/images/fish.JPG");
+    food1.prepend("<img src=./assets/images/fish.JPG>");
     sleepCat.attr("src", "./assets/images/cat1.png");
     const lastFeed = currentTime;
     petStatus.text(petHappy[1]);
@@ -43,14 +47,15 @@ $(document).ready(() => {
 
   const playBtn = $("#play");
   playBtn.on("click", () => {
-    playFunction();
+    //playFunction();
     petStatus.text(petHappy[2]);
     increaseMood("80%");
   });
 
-  function playFunction() {
+  /*function playFunction() {
     alert("This will display a game... to come tomorrow afternoon!");
   }
+  */
 
   function increaseMood(MoodLevel) {
     moodBar.width(MoodLevel);
