@@ -1,13 +1,3 @@
-/* html {
-  position: relative;
-  min-height: 100%;
-} */
-/* 
-body {
-  height: 100%;
-  max-width: 100%;
-} */
-
 .login_body {
   height: 100vh;
   max-width: 100%;
@@ -16,11 +6,24 @@ body {
     fixed;
   background-image: url("https://i.imgur.com/ZmDkgUj.jpg");
   background-size: cover;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.sign_up {
+  height: 100%;
+  max-width: 100%;
+  margin: auto;
+  background: url("https://i.imgur.com/ZmDkgUj.jpg") no-repeat center center
+    fixed;
+  background-image: url("https://i.imgur.com/ZmDkgUj.jpg");
+  background-size: cover;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 .dashboard_body {
   height: 100vh;
-  /* width: 100%; */
   margin: auto;
   background: url("https://i.imgur.com/XTxA8GT.jpg") no-repeat center center
     fixed;
@@ -33,7 +36,6 @@ body {
   bottom: 75px;
   width: 100%;
   background-color: whitesmoke;
-  /* margin-bottom: 30px; */
 }
 
 .pet_text {
