@@ -26,4 +26,18 @@ APIrouter.post("/api/login", passport.authenticate("local"), (req, res) => {
   });
   //---------------------------------------------step 4 sends a response of the username and id of the account logged in then we go back to login.js
 });
+APIrouter.post("/api/updatePet", (req, res) => {
+  db.Account.update(
+    {
+      mood: req.body.value,
+    },
+    {
+      where: {
+        username: req.body.requester,
+      },
+    }
+  ).then((dpUpdate) => {
+    res.json(dpUpdate);
+  });
+});
 module.exports = APIrouter;
