@@ -103,5 +103,16 @@ input {
 #myBar {
   width: 1%;
   height: 30px;
-  background-color: #4caf50;
+  background-color: #2b28d3;
+}
+
+#petStatusDiv{
+  color: rgb(180, 149, 149);
+  font-size: 36px;
+  background-color:rgb(224, 217, 217) ;
+}
+
+#food{
+  width: 10%;
+  height: 10%;
 }
