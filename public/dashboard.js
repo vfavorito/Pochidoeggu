@@ -13,16 +13,17 @@ $(document).ready(() => {
     "Thanks for playing with me!",
   ];
   function increaseBar(int) {
-    const sendInt = {
-      requester: username.tostring(),
-      value: int,
-    };
+    let num = int.toString();
+    let sendInt = {
+      requester: username,
+      value: num,
+    }
     $.post("/api/updatePet", sendInt).then(() => {
-      let x = int.tostring();
+      let x = int.toString();
       x += "0%";
       moodBar.width(x);
-    });
-  }
+    })
+  };
 
   //display the virtual pets need
   //const viewPet = $("#viewPetBtn");
