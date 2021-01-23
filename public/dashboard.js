@@ -10,7 +10,7 @@ $(document).ready(() => {
 
   const petHappy = [
     "Yumm, thank you for feeding me my favorite food",
-    "Thanks for playing with me!",
+    "Thanks for taking me on a walk! I'm sleepy now",
   ];
   //display the virtual pets need
   //const viewPet = $("#viewPetBtn");
@@ -79,6 +79,7 @@ $(document).ready(() => {
       petEl.classList.remove("rotator");
     }, 8001);
     console.log("You clicked");
+    petStatus.text(petNeeds[1]);
   });
 
   function changePic() {
