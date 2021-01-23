@@ -27,9 +27,9 @@ $(document).ready(() => {
 
   const eatBtn = $("#eat");
   eatBtn.on("click", () => {
-    feedMe();
     petStatus.text(petHappy[0]);
-    increaseMood(5);
+    increaseMood(9);
+    moodTimer(3000);
   });
 
   function feedMe() {
@@ -37,12 +37,11 @@ $(document).ready(() => {
     const lastFeed = currentTime;
     petStatus.text(petHappy[1]);
     console.log(lastFeed);
-    moodTimer(3000);
   }
 
   function increaseMood(int) {
     const num = int;
-    let numString = num.toString();
+    let numString = num.toString();\
     const sendInt = {
       requester: username,
       value: numString,
@@ -52,12 +51,14 @@ $(document).ready(() => {
       numString += "0%";
       moodBar.width(numString);
       console.log(moodBar.width());
+      feedMe();
     });
   }
 
   function moodTimer(setTime) {
+    const mood = moodBar.width();
     setTimeout(() => {
-      increaseMood(0);
+      increaseMood(mood);
     }, setTime);
   }
 
