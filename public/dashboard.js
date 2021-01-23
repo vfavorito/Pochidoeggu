@@ -47,11 +47,11 @@ $(document).ready(() => {
       requester: username,
       value: numString,
     };
-    console.log(sendInt);
+    //console.log(sendInt);
     $.post("/api/updatePet", sendInt).then(() => {
       numString += "0%";
       moodBar.width(numString);
-      console.log(moodBar.width());
+      //console.log(moodBar.width());
     });
   }
 
@@ -94,5 +94,14 @@ $(document).ready(() => {
         sleepCat.attr("src", "./assets/images/rabbit1.png");
         break;
     }
+  }
+  setTimeout(originGet, 5000);
+  function originGet() {
+    const sendName = {
+      requester: username,
+    };
+    $.get("/api/updatePet", sendName).then((res) => {
+      console, log(res);
+    });
   }
 });
