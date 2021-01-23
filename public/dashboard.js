@@ -1,6 +1,5 @@
 /* eslint-disable indent */
 $(document).ready(() => {
-  const currentTime = moment().format("MMMM Do YYYY, h:mm:ss a");
   const moodBar = $("#myBar");
   const petNeeds = [
     "I'm hungy. Feed me!!",
