@@ -9,6 +9,8 @@ APIrouter.post("/api/signup", (req, res) => {
     username: req.body.username,
     password: req.body.password,
     petname: req.body.petname,
+    pet1: req.body.pet1,
+    pet2: req.body.pet2,
   })
     .then(() => {
       res.render("login");

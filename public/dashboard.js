@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 $(document).ready(() => {
   const currentTime = moment().format("MMMM Do YYYY, h:mm:ss a");
   const moodBar = $("#myBar");
@@ -14,8 +15,8 @@ $(document).ready(() => {
   //display the virtual pets need
   //const viewPet = $("#viewPetBtn");
   const petStatus = $("#petStatusDiv");
-  const sleepCat = $("#sleepCat");
-  sleepCat.attr("src", "./assets/images/cat2.png");
+  const sleepPet = $("#sleepPet");
+  // sleepCat.attr("src", "./assets/images/cat2.png");
   petStatus.text(petNeeds[0]);
   //increaseMood("0%");
   const username = function () {
@@ -23,13 +24,6 @@ $(document).ready(() => {
     z = x.split(" ");
     return z[1];
   };
-  /*
-    viewPet.on("click", () => {
-      petStatus.text(petNeeds[0]);
-      sleepCat.attr("src", "./assets/images/cat2.png");
-      increaseMood("0%");
-    });
-    */
 
   const eatBtn = $("#eat");
   eatBtn.on("click", () => {
@@ -39,27 +33,12 @@ $(document).ready(() => {
   });
 
   function feedMe() {
-    //const food1 = $("#food");
-    //food1.prepend("<img src=./assets/images/fish.JPG>");
-    sleepCat.attr("src", "./assets/images/cat1.png");
+    changePic();
     const lastFeed = currentTime;
     petStatus.text(petHappy[1]);
     console.log(lastFeed);
     moodTimer(3000);
   }
-
-  const playBtn = $("#play");
-  playBtn.on("click", () => {
-    //playFunction();
-    petStatus.text(petHappy[2]);
-    increaseMood(8);
-    moodTimer(2000);
-  });
-
-  /*function playFunction() {
-      alert("This will display a game... to come tomorrow afternoon!");
-    }
-    */
 
   function increaseMood(int) {
     const num = int;
@@ -81,19 +60,39 @@ $(document).ready(() => {
       increaseMood(0);
     }, setTime);
   }
-});
-$(document).ready(() => {
-  const sendName = {
-    requester: username,
-  };
-  $.get("/api/updatePet", sendName).then((res) => {
-    console, log(res);
-  });
-});
-const catEl = document.querySelector(".cat");
-const btnRoll = document.querySelector(".btnMove");
 
-btnRoll.addEventListener("click", () => {
-  catEl.classList.toggle("rotator");
-  console.log("You clicked");
+  // const sendName = {
+  //   requester: username,
+  // };
+  // $.get("/api/updatePet", sendName).then((res) => {
+  //   console, log(res);
+  // });
+
+  const petEl = document.querySelector(".pet");
+  const walk = $("#walk");
+
+  walk.on("click", () => {
+    console.log(petEl.classList);
+    changePic();
+    petEl.classList.toggle("rotator");
+    console.log("You clicked");
+  });
+
+  function changePic() {
+    const petPicSrc = sleepPet.attr("src");
+
+    switch (petPicSrc) {
+      case "/assets/images/cat2.png":
+        sleepPet.attr("src", "./assets/images/cat1.png");
+        break;
+
+      case "/assets/images/dog2.png":
+        sleepPet.attr("src", "./assets/images/dog1.png");
+        break;
+
+      case "/assets/images/rabbit2.png":
+        sleepPet.attr("src", "./assets/images/rabbit1.png");
+        break;
+    }
+  }
 });
