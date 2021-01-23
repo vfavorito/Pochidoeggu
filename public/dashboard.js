@@ -35,7 +35,7 @@ $(document).ready(() => {
   function feedMe() {
     changePic();
     const lastFeed = currentTime;
-    petStatus.text(petHappy[1]);
+    petStatus.text(petHappy[0]);
     console.log(lastFeed);
   }
 
@@ -91,6 +91,7 @@ $(document).ready(() => {
     changePic();
     petEl.classList.toggle("rotator");
     console.log("You clicked");
+    petStatus.text(petHappy[1]);
   });
 
   function changePic() {
