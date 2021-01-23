@@ -26,4 +26,31 @@ APIrouter.post("/api/login", passport.authenticate("local"), (req, res) => {
   });
   //---------------------------------------------step 4 sends a response of the username and id of the account logged in then we go back to login.js
 });
+APIrouter.post("/api/updatePet", (req, res) => {
+  console.log(req.body);
+  db.Account.update(
+    {
+      mood: req.body.value,
+    },
+    {
+      where: {
+        username: req.body.requester,
+      },
+    }
+  ).then((dpUpdate) => {
+    res.json(dpUpdate);
+  });
+});
+APIrouter.get(".api/updatePet", (req, res) => {
+  db.Account.findOne({
+    where: {
+      username: req.requester,
+    },
+  })
+    .then(res.json({ res }))
+    .catch((err) => {
+      console.log(err);
+      res.status(400).json(err);
+    });
+});
 module.exports = APIrouter;
