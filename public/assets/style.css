@@ -35,6 +35,11 @@
   text-align: center;
 }
 
+#login {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .pet_info {
   position: absolute;
   bottom: 75px;
@@ -50,7 +55,7 @@
 }
 
 #pet_status {
-  margin: 20px;
+  margin: auto;
   padding: 10px;
   background-color: whitesmoke;
 }
@@ -59,11 +64,14 @@ h1 {
   font-size: 100px;
   text-align: center;
   color: #fff;
-  animation: glow 1s ease-in-out infinite alternate;
 }
 h2 {
   font-size: 80px;
   text-align: center;
+  color: #fff;
+}
+
+.glow {
   color: #fff;
   animation: glow 1s ease-in-out infinite alternate;
 }
@@ -87,7 +95,7 @@ form {
   color: white;
 }
 p {
-  font-size: 40px;
+  font-size: 20px;
   color: white;
 }
 input {
@@ -158,19 +166,19 @@ input {
 }
 
 #petStatusDiv {
-  color: rgb(180, 149, 149);
+  color: rgb(34, 34, 34);
   font-size: 36px;
-  background-color: rgb(224, 217, 217);
+  text-align: center;
 }
 
 #food {
   width: 10%;
   height: 10%;
 }
-.radioPics{
+.radioPics {
   width: 100px;
   height: 100px;
 }
-#radioLabel{
+#radioLabel {
   font-size: 20px;
 }
