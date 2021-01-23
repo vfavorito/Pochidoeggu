@@ -63,10 +63,6 @@ $(document).ready(() => {
     //playFunction();
     petStatus.text(petHappy[2]);
     increaseBar(8);
-<<<<<<< HEAD
-    increaseMood("80%");
-=======
->>>>>>> cb079e77101426625ed1f3fdbf223d9b4bee88d4
     moodTimer(2000);
   });
 
@@ -78,20 +74,12 @@ $(document).ready(() => {
   // function increaseMood(MoodLevel) {
   //   moodBar.width(MoodLevel);
   // }
-<<<<<<< HEAD
-  function increaseMood(MoodLevel) {
-    moodBar.width(MoodLevel);
-  }
-=======
->>>>>>> cb079e77101426625ed1f3fdbf223d9b4bee88d4
 
   function moodTimer(setTime) {
     setInterval(() => {
       increaseBar(0);
     }, setTime);
   }
-<<<<<<< HEAD
-=======
 });
 const catEl = document.querySelector(".cat");
 const btnRoll = document.querySelector(".btnMove");
@@ -99,5 +87,4 @@ const btnRoll = document.querySelector(".btnMove");
 btnRoll.addEventListener("click", () => {
   catEl.classList.toggle("rotator");
   console.log("You clicked");
->>>>>>> cb079e77101426625ed1f3fdbf223d9b4bee88d4
 });
