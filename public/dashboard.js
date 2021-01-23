@@ -5,7 +5,7 @@ $(document).ready(() => {
   const petNeeds = [
     "I am hungy. Please feed me!",
     "I have too much energy! Lets go for a walk.",
-    "I missed you. Lets play a game!",
+    "I'm sleepy  now",
   ];
 
   const petHappy = [
