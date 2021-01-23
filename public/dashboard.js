@@ -1,6 +1,5 @@
 /* eslint-disable indent */
 $(document).ready(() => {
-  const currentTime = moment().format("MMMM Do YYYY, h:mm:ss a");
   const moodBar = $("#myBar");
   const petNeeds = [
     "I am hungy. Please feed me!",
@@ -27,17 +26,14 @@ $(document).ready(() => {
 
   const eatBtn = $("#eat");
   eatBtn.on("click", () => {
-    feedMe();
     petStatus.text(petHappy[0]);
     increaseMood(5);
   });
 
   function feedMe() {
     changePic();
-    const lastFeed = currentTime;
     petStatus.text(petHappy[1]);
-    console.log(lastFeed);
-    moodTimer(3000);
+    moodTimer(13000);
   }
 
   function increaseMood(int) {
@@ -51,6 +47,7 @@ $(document).ready(() => {
     $.post("/api/updatePet", sendInt).then(() => {
       numString += "0%";
       moodBar.width(numString);
+      feedMe();
       //console.log(moodBar.width());
     });
   }
@@ -60,13 +57,6 @@ $(document).ready(() => {
       increaseMood(0);
     }, setTime);
   }
-
-  // const sendName = {
-  //   requester: username,
-  // };
-  // $.get("/api/updatePet", sendName).then((res) => {
-  //   console, log(res);
-  // });
 
   const catEl = document.querySelector(".cat");
   const btnRoll = $(".btnMove");
@@ -95,13 +85,14 @@ $(document).ready(() => {
         break;
     }
   }
-  setTimeout(originGet, 5000);
-  function originGet() {
-    const sendName = {
-      requester: username,
-    };
-    $.get("/api/updatePet", sendName).then((res) => {
-      console, log(res);
-    });
-  }
+  // setTimeout(originGet, 5000);
+  // function originGet() {
+  //   const sendName = {
+  //     requester: username,
+  //   };
+  //   console.log(sendName);
+  //   $.get("/api/updatePet", sendName).then((res) => {
+  //     console, log(res);
+  //   });
+  // }
 });

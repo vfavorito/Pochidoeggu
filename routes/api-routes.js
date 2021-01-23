@@ -43,7 +43,8 @@ APIrouter.post("/api/updatePet", (req, res) => {
     res.json(dpUpdate);
   });
 });
-APIrouter.get(".api/updatePet", (req, res) => {
+APIrouter.get("/api/updatePet", (req, res) => {
+  console.log(req.body);
   db.Account.findOne({
     where: {
       username: req.body.requester,
