@@ -3,22 +3,15 @@ $(document).ready(() => {
   const currentTime = moment().format("MMMM Do YYYY, h:mm:ss a");
   const moodBar = $("#myBar");
   const petNeeds = [
-    "I am hungy. Please feed me!",
+    "I'm hungy. Feed me!!",
     "I have too much energy! Lets go for a walk.",
-    "I'm sleepy  now",
+    "I'm sleepy now",
   ];
 
-  const petHappy = [
-    "Yumm, thank you for feeding me my favorite food",
-    "Thanks for taking me on a walk! I'm sleepy now",
-  ];
-  //display the virtual pets need
-  //const viewPet = $("#viewPetBtn");
   const petStatus = $("#petStatusDiv");
   const sleepPet = $("#sleepPet");
-  // sleepCat.attr("src", "./assets/images/cat2.png");
   petStatus.text(petNeeds[0]);
-  //increaseMood("0%");
+
   const username = function () {
     x = $("#username").text();
     z = x.split(" ");
@@ -28,13 +21,12 @@ $(document).ready(() => {
   const eatBtn = $("#eat");
   eatBtn.on("click", () => {
     feedMe();
-    petStatus.text(petHappy[0]);
+    petStatus.text(petHappy[1]);
     increaseMood(5);
   });
 
   function feedMe() {
     changePic();
-    const lastFeed = currentTime;
     petStatus.text(petHappy[1]);
     console.log(lastFeed);
     moodTimer(3000);
