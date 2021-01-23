@@ -81,20 +81,49 @@ $(document).ready(() => {
     console.log("You clicked");
   });
 
+  const sleep = $("#sleep");
+
+  sleep.on("click", () => {
+    const petPicSrc = sleepPet.attr("src");
+    if (petPicSrc.indexOf("1") !== -1) {
+      sleepSrc();
+    } else {
+      return;
+    }
+  });
+
   function changePic() {
     const petPicSrc = sleepPet.attr("src");
-
     switch (petPicSrc) {
       case "/assets/images/cat2.png":
-        sleepPet.attr("src", "./assets/images/cat1.png");
+        sleepPet.attr("src", "/assets/images/cat1.png");
         break;
 
       case "/assets/images/dog2.png":
-        sleepPet.attr("src", "./assets/images/dog1.png");
+        sleepPet.attr("src", "/assets/images/dog1.png");
         break;
 
       case "/assets/images/rabbit2.png":
-        sleepPet.attr("src", "./assets/images/rabbit1.png");
+        sleepPet.attr("src", "/assets/images/rabbit1.png");
+        break;
+    }
+  }
+
+  function sleepSrc() {
+    const petPicSrc = sleepPet.attr("src");
+    console.log(petPicSrc);
+    switch (petPicSrc) {
+      case "/assets/images/cat1.png":
+        sleepPet.attr("src", "/assets/images/cat2.png");
+        break;
+
+      case "/assets/images/dog1.png":
+        sleepPet.attr("src", "/assets/images/dog2.png");
+        break;
+
+      case "/assets/images/rabbit1.png":
+        sleepPet.attr("src", "/assets/images/rabbit2.png");
+        console.log("hit this");
         break;
     }
   }

@@ -10,6 +10,11 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+.actionBtn{
+  margin-top:10px;
+  width:125px;
+  margin-left:17px;
+}
 .sign_up {
   height: 100%;
   max-width: 100%;
