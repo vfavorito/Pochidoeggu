@@ -74,7 +74,10 @@ $(document).ready(() => {
   walk.on("click", () => {
     console.log(petEl.classList);
     changePic();
-    petEl.classList.toggle("rotator");
+    petEl.classList.add("rotator");
+    setTimeout(() => {
+      petEl.classList.remove("rotator");
+    }, 8001);
     console.log("You clicked");
   });
 
