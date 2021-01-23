@@ -10,6 +10,11 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+.actionBtn{
+  margin-top:10px;
+  width:125px;
+  margin-left:17px;
+}
 .sign_up {
   height: 100%;
   max-width: 100%;
@@ -41,15 +46,15 @@
 }
 
 .pet_info {
+  margin-top:45px;
   position: absolute;
-  bottom: 75px;
   width: 100%;
 }
 
 .pet_text {
   padding-top: 10px;
   text-align: center;
-  color: rgb(21, 39, 201);
+  color: white;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
@@ -57,7 +62,6 @@
 #pet_status {
   margin: auto;
   padding: 10px;
-  background-color: whitesmoke;
 }
 
 h1 {
@@ -108,31 +112,28 @@ input {
   color: #fff;
 }
 
-/* Style to walk cat starts here */
 @-webkit-keyframes move {
-  from {
-    right: 10%;
+  0% {
+    right: 76%;
   }
-  to {
+  33% {
     right: 100%;
+  }
+  66% {
+    right:5%;
+  }
+  100%{
+    right:76%;
   }
 }
-/* @keyframes move {
-  from {
-    right: 10%;
-  }
-  to {
-    right: 100%;
-  }
-} */
 
 .rotator {
   text-decoration: none;
   padding-right: 20px;
   right: 5%;
   position: absolute;
-  -webkit-animation: move 5s;
-  animation: move 5s;
+  -webkit-animation: move 8s;
+  animation: move 8s;
 }
 
 .rotator img {
@@ -166,9 +167,12 @@ input {
 }
 
 #petStatusDiv {
-  color: rgb(34, 34, 34);
-  font-size: 36px;
+  margin-top:10px;
+  color:black;
+  font-size: 20px;
   text-align: center;
+  background-color: whitesmoke;
+  border-radius: 48%;
 }
 
 #food {
