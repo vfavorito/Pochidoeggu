@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 $(document).ready(() => {
   const currentTime = moment().format("MMMM Do YYYY, h:mm:ss a");
   const moodBar = $("#myBar");
@@ -15,7 +16,7 @@ $(document).ready(() => {
   //const viewPet = $("#viewPetBtn");
   const petStatus = $("#petStatusDiv");
   const sleepCat = $("#sleepCat");
-  sleepCat.attr("src", "./assets/images/cat2.png");
+  // sleepCat.attr("src", "./assets/images/cat2.png");
   petStatus.text(petNeeds[0]);
   //increaseMood("0%");
   const username = function () {
@@ -39,9 +40,23 @@ $(document).ready(() => {
   });
 
   function feedMe() {
-    //const food1 = $("#food");
-    //food1.prepend("<img src=./assets/images/fish.JPG>");
-    sleepCat.attr("src", "./assets/images/cat1.png");
+    const food1 = $("#food");
+    food1.prepend("<img src=./assets/images/fish.JPG>");
+    const petPicSrc = sleepCat.attr("src");
+
+    switch (petPicSrc) {
+      case "/assets/images/cat2.png":
+        sleepCat.attr("src", "./assets/images/cat1.png");
+        break;
+
+      case "/assets/images/dog2.png":
+        sleepCat.attr("src", "./assets/images/dog1.png");
+        break;
+
+      case "/assets/images/rabbit2.png":
+        sleepCat.attr("src", "./assets/images/rabbit1.png");
+        break;
+    }
     const lastFeed = currentTime;
     petStatus.text(petHappy[1]);
     console.log(lastFeed);

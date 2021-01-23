@@ -24,6 +24,12 @@ module.exports = function (sequelize, DataTypes) {
     moodUpdate: {
       type: DataTypes.STRING,
     },
+    pet1: {
+      type: DataTypes.STRING,
+    },
+    pet2: {
+      type: DataTypes.STRING,
+    },
   });
   // adding a prototype function to the model to be used in the localStrategy for passport in passport.js file
   Account.prototype.validPassword = function (password) {
