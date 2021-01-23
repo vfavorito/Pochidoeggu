@@ -175,10 +175,10 @@ input {
   width: 10%;
   height: 10%;
 }
-.radioPics {
-  width: 100px;
-  height: 100px;
-}
 #radioLabel {
   font-size: 20px;
+}
+.form-check-label {
+  margin-right: 20px;
+  margin-bottom: 10px;
 }
