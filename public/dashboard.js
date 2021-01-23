@@ -41,7 +41,7 @@ $(document).ready(() => {
 
   function increaseMood(int) {
     const num = int;
-    let numString = num.toString();\
+    let numString = num.toString();
     const sendInt = {
       requester: username,
       value: numString,
@@ -52,6 +52,7 @@ $(document).ready(() => {
       moodBar.width(numString);
       console.log(moodBar.width());
       feedMe();
+      walk();
     });
   }
 
@@ -60,6 +61,17 @@ $(document).ready(() => {
     setTimeout(() => {
       increaseMood(mood);
     }, setTime);
+  }
+
+  function moodTimer(setTime) {
+    const mood = moodBar.width();
+    if (mood > 0) {
+      setInterval(() => {
+        increaseMood(mood);
+      }, setTime);
+    } else {
+      clearInterval(setTime);
+    }
   }
 
   // const sendName = {
