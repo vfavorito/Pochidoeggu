@@ -97,11 +97,14 @@ input {
 
 /* Style to walk cat starts here */
 @-webkit-keyframes move {
-  from {
+  0% {
     right: 10%;
   }
-  to {
+  50% {
     right: 100%;
+  }
+  100%{
+    right: 5%
   }
 }
 /* @keyframes move {
