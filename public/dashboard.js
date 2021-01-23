@@ -10,7 +10,7 @@ $(document).ready(() => {
 
   const petHappy = [
     "Yumm, thank you for feeding me my favorite food",
-    "Thanks for playing with me!",
+    "Thanks for taking me on a walk! I'm sleepy now.",
   ];
   //display the virtual pets need
   //const viewPet = $("#viewPetBtn");
@@ -55,17 +55,19 @@ $(document).ready(() => {
       walk();
     });
   }
-
+  /*
   function moodTimer(setTime) {
     const mood = moodBar.width();
     setTimeout(() => {
       increaseMood(mood);
     }, setTime);
   }
+  */
 
   function moodTimer(setTime) {
     const mood = moodBar.width();
     if (mood > 0) {
+      mood = moodBar - 1;
       setInterval(() => {
         increaseMood(mood);
       }, setTime);
