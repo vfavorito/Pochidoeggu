@@ -15,7 +15,7 @@ $(document).ready(() => {
   //display the virtual pets need
   //const viewPet = $("#viewPetBtn");
   const petStatus = $("#petStatusDiv");
-  const sleepCat = $("#sleepCat");
+  const sleepPet = $("#sleepPet");
   // sleepCat.attr("src", "./assets/images/cat2.png");
   petStatus.text(petNeeds[0]);
   //increaseMood("0%");
@@ -68,30 +68,30 @@ $(document).ready(() => {
   //   console, log(res);
   // });
 
-  const catEl = document.querySelector(".cat");
-  const btnRoll = $(".btnMove");
+  const petEl = document.querySelector(".pet");
+  const walk = $("#walk");
 
-  btnRoll.on("click", () => {
-    console.log(catEl.classList);
+  walk.on("click", () => {
+    console.log(petEl.classList);
     changePic();
-    catEl.classList.toggle("rotator");
+    petEl.classList.toggle("rotator");
     console.log("You clicked");
   });
 
   function changePic() {
-    const petPicSrc = sleepCat.attr("src");
+    const petPicSrc = sleepPet.attr("src");
 
     switch (petPicSrc) {
       case "/assets/images/cat2.png":
-        sleepCat.attr("src", "./assets/images/cat1.png");
+        sleepPet.attr("src", "./assets/images/cat1.png");
         break;
 
       case "/assets/images/dog2.png":
-        sleepCat.attr("src", "./assets/images/dog1.png");
+        sleepPet.attr("src", "./assets/images/dog1.png");
         break;
 
       case "/assets/images/rabbit2.png":
-        sleepCat.attr("src", "./assets/images/rabbit1.png");
+        sleepPet.attr("src", "./assets/images/rabbit1.png");
         break;
     }
   }
