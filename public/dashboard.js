@@ -71,7 +71,7 @@ $(document).ready(() => {
     console.log(sendInt);
     $.post("/api/updatePet", sendInt).then(() => {
       numString += "0%";
-      moodBar.width(int);
+      moodBar.width(numString);
       console.log(moodBar.width());
     });
   }
