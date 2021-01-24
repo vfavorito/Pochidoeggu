@@ -27,7 +27,6 @@ $(document).ready(() => {
     changePic();
     petStatus.text(petNeeds[1]);
     console.log(lastFeed);
-    moodTimer(3000);
   }
 
   let i = 0;
@@ -60,12 +59,6 @@ $(document).ready(() => {
     });
   }
 
-  function moodTimer(setTime) {
-    setTimeout(() => {
-      increaseMood(0);
-    }, setTime);
-  }
-
   // const sendName = {
   //   requester: username,
   // };
@@ -85,11 +78,13 @@ $(document).ready(() => {
     }, 8001);
     console.log("You clicked");
     petStatus.text(petNeeds[2]);
+    increaseMood(10);
   });
 
   const sleep = $("#sleep");
 
   sleep.on("click", () => {
+    increaseMood(10);
     petStatus.text(petNeeds[3]);
     const petPicSrc = sleepPet.attr("src");
     if (petPicSrc.indexOf("1") !== -1) {
@@ -102,17 +97,17 @@ $(document).ready(() => {
   function changePic() {
     const petPicSrc = sleepPet.attr("src");
     switch (petPicSrc) {
-      case "/assets/images/cat2.png":
-        sleepPet.attr("src", "/assets/images/cat1.png");
-        break;
+    case "/assets/images/cat2.png":
+      sleepPet.attr("src", "/assets/images/cat1.png");
+    break;
 
-      case "/assets/images/dog2.png":
-        sleepPet.attr("src", "/assets/images/dog1.png");
-        break;
+    case "/assets/images/dog2.png":
+      sleepPet.attr("src", "/assets/images/dog1.png");
+      break;
 
-      case "/assets/images/rabbit2.png":
-        sleepPet.attr("src", "/assets/images/rabbit1.png");
-        break;
+    case "/assets/images/rabbit2.png":
+      sleepPet.attr("src", "/assets/images/rabbit1.png");
+     break;
     }
   }
 
@@ -120,18 +115,18 @@ $(document).ready(() => {
     const petPicSrc = sleepPet.attr("src");
     console.log(petPicSrc);
     switch (petPicSrc) {
-      case "/assets/images/cat1.png":
-        sleepPet.attr("src", "/assets/images/cat2.png");
-        break;
+    case "/assets/images/cat1.png":
+      sleepPet.attr("src", "/assets/images/cat2.png");
+      break;
 
-      case "/assets/images/dog1.png":
-        sleepPet.attr("src", "/assets/images/dog2.png");
-        break;
+    case "/assets/images/dog1.png":
+      sleepPet.attr("src", "/assets/images/dog2.png");
+      break;
 
-      case "/assets/images/rabbit1.png":
-        sleepPet.attr("src", "/assets/images/rabbit2.png");
-        console.log("hit this");
-        break;
+    case "/assets/images/rabbit1.png":
+      sleepPet.attr("src", "/assets/images/rabbit2.png");
+      console.log("hit this");
+      break;
     }
   }
 });
