@@ -2,22 +2,15 @@
 $(document).ready(() => {
   const moodBar = $("#myBar");
   const petNeeds = [
-    "I am hungy. Please feed me!",
+    "I'm hungy. Feed me!!",
     "I have too much energy! Lets go for a walk.",
-    "I missed you. Lets play a game!",
+    "I'm sleepy now",
   ];
 
-  const petHappy = [
-    "Yumm, thank you for feeding me my favorite food",
-    "Thanks for playing with me!",
-  ];
-  //display the virtual pets need
-  //const viewPet = $("#viewPetBtn");
   const petStatus = $("#petStatusDiv");
-  const sleepCat = $("#sleepCat");
-  // sleepCat.attr("src", "./assets/images/cat2.png");
+  const sleepPet = $("#sleepPet");
   petStatus.text(petNeeds[0]);
-  //increaseMood("0%");
+
   const username = function () {
     x = $("#username").text();
     z = x.split(" ");
@@ -26,7 +19,12 @@ $(document).ready(() => {
 
   const eatBtn = $("#eat");
   eatBtn.on("click", () => {
+<<<<<<< HEAD
     petStatus.text(petHappy[0]);
+=======
+    feedMe();
+    petStatus.text(petHappy[1]);
+>>>>>>> de56dcd2ad542098338b0d6eeb9dce92033a4ed8
     increaseMood(5);
   });
 
@@ -58,30 +56,75 @@ $(document).ready(() => {
     }, setTime);
   }
 
+<<<<<<< HEAD
   const catEl = document.querySelector(".cat");
   const btnRoll = $(".btnMove");
+=======
+  // const sendName = {
+  //   requester: username,
+  // };
+  // $.get("/api/updatePet", sendName).then((res) => {
+  //   console, log(res);
+  // });
 
-  btnRoll.on("click", () => {
-    console.log(catEl.classList);
+  const petEl = document.querySelector(".pet");
+  const walk = $("#walk");
+>>>>>>> de56dcd2ad542098338b0d6eeb9dce92033a4ed8
+
+  walk.on("click", () => {
+    console.log(petEl.classList);
     changePic();
-    catEl.classList.toggle("rotator");
+    petEl.classList.add("rotator");
+    setTimeout(() => {
+      petEl.classList.remove("rotator");
+    }, 8001);
     console.log("You clicked");
+    petStatus.text(petNeeds[1]);
+  });
+
+  const sleep = $("#sleep");
+
+  sleep.on("click", () => {
+    const petPicSrc = sleepPet.attr("src");
+    if (petPicSrc.indexOf("1") !== -1) {
+      sleepSrc();
+    } else {
+      return;
+    }
   });
 
   function changePic() {
-    const petPicSrc = sleepCat.attr("src");
-
+    const petPicSrc = sleepPet.attr("src");
     switch (petPicSrc) {
       case "/assets/images/cat2.png":
-        sleepCat.attr("src", "./assets/images/cat1.png");
+        sleepPet.attr("src", "/assets/images/cat1.png");
         break;
 
       case "/assets/images/dog2.png":
-        sleepCat.attr("src", "./assets/images/dog1.png");
+        sleepPet.attr("src", "/assets/images/dog1.png");
         break;
 
       case "/assets/images/rabbit2.png":
-        sleepCat.attr("src", "./assets/images/rabbit1.png");
+        sleepPet.attr("src", "/assets/images/rabbit1.png");
+        break;
+    }
+  }
+
+  function sleepSrc() {
+    const petPicSrc = sleepPet.attr("src");
+    console.log(petPicSrc);
+    switch (petPicSrc) {
+      case "/assets/images/cat1.png":
+        sleepPet.attr("src", "/assets/images/cat2.png");
+        break;
+
+      case "/assets/images/dog1.png":
+        sleepPet.attr("src", "/assets/images/dog2.png");
+        break;
+
+      case "/assets/images/rabbit1.png":
+        sleepPet.attr("src", "/assets/images/rabbit2.png");
+        console.log("hit this");
         break;
     }
   }

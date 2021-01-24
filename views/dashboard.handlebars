@@ -7,33 +7,42 @@
     </div>
   </nav>
   <br />
-  <div class="container">
-    <div id="petStatusDiv"></div>
-    {{!-- <img src="{{pet2}}" id="sleepCat" /> --}}
-    <a id="rotator"><img src="{{pet2}}" class="cat" id="sleepCat" /></a>
-    <div id="food"></div>
-  </div>
-  <footer class="pet_info">
-    <div class="container-fluid">
-      <h3 class="pet_text">{{petname}}</h3>
-      <div class="row">
-        <div class="col-md-3 offset-md-3">
-          <button type="button" class="btn btn-dark" id="eat">Feed</button>
-        </div>
-        <div class="col-md-3 offset-md-3">
-          <button type="button" class="btn btn-dark btnMove" id="play">Walk</button>
-        </div>
+
+  <div class="container" id="pet_status">
+    <h3 class="pet_text glow">{{petname}}</h3>
+    <div class="row">
+      <div class="col-md-3 offset-md-1">
+        <button type="button" class="btn btn-dark actionBtn" id="eat">Feed</button>
       </div>
-      <div class="row">
-        <h3>Mood</h3>
-        <div class="col-md-12">
-          <div id="myProgress">
-            <div id="myBar"></div>
-          </div>
-        </div>
+      <div class="col-md-3 offset-md-1">
+        <button type="button" class="btn btn-dark actionBtn" id="walk">Walk</button>
+      </div>
+      <div class="col-md-3 offset-md-1">
+        <button type="button" class="btn btn-dark actionBtn" id="sleep">Sleep</button>
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <h3 class="pet_text">Mood</h3>
+        <div id="myProgress">
+          <div id="myBar"></div>
+        </div>
+        <div id="petStatusDiv"></div>
+      </div>
+    </div>
+<<<<<<< HEAD
   </footer>
 </div>
 <script src="/dashboard.js"></script>
 <script>let onLoadMood = {{mood}};</script>
+=======
+    <div class="row">
+      <div class="pet_info col-md-12">
+        <a id="rotator"><img src="{{pet2}}" class="pet" id="sleepPet" /></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/dashboard.js"></script>
+>>>>>>> de56dcd2ad542098338b0d6eeb9dce92033a4ed8

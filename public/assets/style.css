@@ -10,6 +10,11 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+.actionBtn{
+  margin-top:10px;
+  width:125px;
+  margin-left:17px;
+}
 .sign_up {
   height: 100%;
   max-width: 100%;
@@ -35,30 +40,42 @@
   text-align: center;
 }
 
+#login {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .pet_info {
+  margin-top:45px;
   position: absolute;
-  bottom: 75px;
   width: 100%;
-  background-color: whitesmoke;
 }
 
 .pet_text {
   padding-top: 10px;
   text-align: center;
-  color: rgb(21, 39, 201);
+  color: white;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+#pet_status {
+  margin: auto;
+  padding: 10px;
 }
 
 h1 {
   font-size: 100px;
   text-align: center;
   color: #fff;
-  animation: glow 1s ease-in-out infinite alternate;
 }
 h2 {
   font-size: 80px;
   text-align: center;
+  color: #fff;
+}
+
+.glow {
   color: #fff;
   animation: glow 1s ease-in-out infinite alternate;
 }
@@ -82,7 +99,7 @@ form {
   color: white;
 }
 p {
-  font-size: 40px;
+  font-size: 20px;
   color: white;
 }
 input {
@@ -95,31 +112,28 @@ input {
   color: #fff;
 }
 
-/* Style to walk cat starts here */
 @-webkit-keyframes move {
-  from {
-    right: 10%;
+  0% {
+    right: 76%;
   }
-  to {
+  33% {
     right: 100%;
+  }
+  66% {
+    right:5%;
+  }
+  100%{
+    right:76%;
   }
 }
-/* @keyframes move {
-  from {
-    right: 10%;
-  }
-  to {
-    right: 100%;
-  }
-} */
 
 .rotator {
   text-decoration: none;
   padding-right: 20px;
   right: 5%;
   position: absolute;
-  -webkit-animation: move 5s;
-  animation: move 5s;
+  -webkit-animation: move 8s;
+  animation: move 8s;
 }
 
 .rotator img {
@@ -141,6 +155,7 @@ input {
 } */
 /* Style to walk cat ends here */
 #myProgress {
+  margin: auto;
   width: 100%;
   background-color: #ddd;
 }
@@ -152,19 +167,22 @@ input {
 }
 
 #petStatusDiv {
-  color: rgb(180, 149, 149);
-  font-size: 36px;
-  background-color: rgb(224, 217, 217);
+  margin-top:10px;
+  color:black;
+  font-size: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+  border-radius: 48%;
 }
 
 #food {
   width: 10%;
   height: 10%;
 }
-#radioLabel{
+#radioLabel {
   font-size: 20px;
 }
-.form-check-label{
+.form-check-label {
   margin-right: 20px;
   margin-bottom: 10px;
 }
