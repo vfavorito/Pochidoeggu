@@ -62,7 +62,7 @@ $(document).ready(() => {
         alert("Account Created");
       })
       .fail(() => {
-        alert("Username is Unavailable");
+        alert("Username Not Available");
       });
   };
 
