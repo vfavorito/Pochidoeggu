@@ -6,7 +6,13 @@ $(document).ready(() => {
     "I have too much energy! Lets go for a walk.",
     "I'm sleepy now",
   ];
-
+  const petHappy = [
+    "Yumm, thank you for feeding me my favorite food",
+    "Thanks for playing with me!",
+  ];
+  //display the virtual pets need
+  //const viewPet = $("#viewPetBtn");
+  const petMood = 10;
   const petStatus = $("#petStatusDiv");
   const sleepPet = $("#sleepPet");
   petStatus.text(petNeeds[0]);
@@ -19,57 +25,48 @@ $(document).ready(() => {
 
   const eatBtn = $("#eat");
   eatBtn.on("click", () => {
-<<<<<<< HEAD
-    petStatus.text(petHappy[0]);
-=======
-    feedMe();
     petStatus.text(petHappy[1]);
->>>>>>> de56dcd2ad542098338b0d6eeb9dce92033a4ed8
-    increaseMood(5);
+    moodTimer(3000, petMood);
   });
 
-  function feedMe() {
-    changePic();
-    petStatus.text(petHappy[1]);
-    moodTimer(13000);
-  }
-
-  function increaseMood(int) {
+  function changeMood(int) {
     const num = int;
     let numString = num.toString();
     const sendInt = {
       requester: username,
       value: numString,
     };
-    //console.log(sendInt);
+    console.log(sendInt);
     $.post("/api/updatePet", sendInt).then(() => {
       numString += "0%";
       moodBar.width(numString);
-      feedMe();
-      //console.log(moodBar.width());
+      changePic();
+      petStatus.text(petHappy[1]);
     });
   }
 
-  function moodTimer(setTime) {
-    setTimeout(() => {
-      increaseMood(0);
+  function moodTimer(setTime, int) {
+    num = int;
+    const interval1 = setInterval(() => {
+      if (num === 0) {
+        clearInterval(interval1);
+      } else {
+        num--;
+        changeMoodBar(num);
+      }
     }, setTime);
   }
 
-<<<<<<< HEAD
-  const catEl = document.querySelector(".cat");
-  const btnRoll = $(".btnMove");
-=======
-  // const sendName = {
-  //   requester: username,
-  // };
-  // $.get("/api/updatePet", sendName).then((res) => {
-  //   console, log(res);
-  // });
-
+  function changeMoodBar(int) {
+    const num = int;
+    console.log(num);
+    let numString = num.toString();
+    numString += "0%";
+    moodBar.width(numString);
+    changeMood(num);
+  }
   const petEl = document.querySelector(".pet");
   const walk = $("#walk");
->>>>>>> de56dcd2ad542098338b0d6eeb9dce92033a4ed8
 
   walk.on("click", () => {
     console.log(petEl.classList);
@@ -128,14 +125,4 @@ $(document).ready(() => {
         break;
     }
   }
-  // setTimeout(originGet, 5000);
-  // function originGet() {
-  //   const sendName = {
-  //     requester: username,
-  //   };
-  //   console.log(sendName);
-  //   $.get("/api/updatePet", sendName).then((res) => {
-  //     console, log(res);
-  //   });
-  // }
 });
