@@ -2,8 +2,9 @@ $(document).ready(() => {
   const moodBar = $("#myBar");
   const petNeeds = [
     "I'm hungy. Feed me!!",
-    "I have too much energy! Lets go for a walk.",
+    "Thanks for the food. Now, I have too much energy! Lets go for a walk.",
     "I'm sleepy now",
+    "That was a nice nap. I need food now.",
   ];
 
   const petStatus = $("#petStatusDiv");
@@ -19,20 +20,34 @@ $(document).ready(() => {
   const eatBtn = $("#eat");
   eatBtn.on("click", () => {
     feedMe();
-    petStatus.text(petHappy[1]);
     increaseMood(10);
   });
 
   function feedMe() {
     changePic();
-    petStatus.text(petHappy[1]);
+    petStatus.text(petNeeds[1]);
     console.log(lastFeed);
     moodTimer(3000);
   }
 
+  let i = 0;
   function increaseMood(int) {
     const num = int;
     let numString = num.toString();
+    if (i === 0) {
+      i = 10;
+      let width = num;
+      const id = setInterval(frame, 1000);
+      function frame() {
+        if (width <= 5) {
+          clearInterval(id);
+          i = 0;
+        } else {
+          width--;
+          moodBar = width + "%";
+        }
+      }
+    }
     const sendInt = {
       requester: username,
       value: numString,
@@ -69,12 +84,13 @@ $(document).ready(() => {
       petEl.classList.remove("rotator");
     }, 8001);
     console.log("You clicked");
-    petStatus.text(petNeeds[1]);
+    petStatus.text(petNeeds[2]);
   });
 
   const sleep = $("#sleep");
 
   sleep.on("click", () => {
+    petStatus.text(petNeeds[3]);
     const petPicSrc = sleepPet.attr("src");
     if (petPicSrc.indexOf("1") !== -1) {
       sleepSrc();
@@ -86,17 +102,17 @@ $(document).ready(() => {
   function changePic() {
     const petPicSrc = sleepPet.attr("src");
     switch (petPicSrc) {
-    case "/assets/images/cat2.png":
+      case "/assets/images/cat2.png":
         sleepPet.attr("src", "/assets/images/cat1.png");
-      break;
+        break;
 
-    case "/assets/images/dog2.png":
-      sleepPet.attr("src", "/assets/images/dog1.png");
-      break;
+      case "/assets/images/dog2.png":
+        sleepPet.attr("src", "/assets/images/dog1.png");
+        break;
 
-    case "/assets/images/rabbit2.png":
-      sleepPet.attr("src", "/assets/images/rabbit1.png");
-      break;
+      case "/assets/images/rabbit2.png":
+        sleepPet.attr("src", "/assets/images/rabbit1.png");
+        break;
     }
   }
 
@@ -104,18 +120,18 @@ $(document).ready(() => {
     const petPicSrc = sleepPet.attr("src");
     console.log(petPicSrc);
     switch (petPicSrc) {
-    case "/assets/images/cat1.png":
-      sleepPet.attr("src", "/assets/images/cat2.png");
-      break;
+      case "/assets/images/cat1.png":
+        sleepPet.attr("src", "/assets/images/cat2.png");
+        break;
 
-    case "/assets/images/dog1.png":
-      sleepPet.attr("src", "/assets/images/dog2.png");
-      break;
+      case "/assets/images/dog1.png":
+        sleepPet.attr("src", "/assets/images/dog2.png");
+        break;
 
-    case "/assets/images/rabbit1.png":
-      sleepPet.attr("src", "/assets/images/rabbit2.png");
-      console.log("hit this");
-      break;
+      case "/assets/images/rabbit1.png":
+        sleepPet.attr("src", "/assets/images/rabbit2.png");
+        console.log("hit this");
+        break;
     }
   }
 });
