@@ -20,7 +20,6 @@ $(document).ready(() => {
   const eatBtn = $("#eat");
   eatBtn.on("click", () => {
     feedMe();
-    increaseMood(10);
   });
 
   function feedMe() {
@@ -33,17 +32,17 @@ $(document).ready(() => {
   function increaseMood(int) {
     const num = int;
     let numString = num.toString();
-    if (i === 0) {
+    if (i = 0) {
       i = 10;
       let width = num;
-      const id = setInterval(frame, 1000);
+      const id = setInterval(frame, 10);
       function frame() {
-        if (width <= 5) {
+        if (width <= 2) {
           clearInterval(id);
           i = 0;
         } else {
           width--;
-          moodBar = width + "%";
+          moodBar.width(num);
         }
       }
     }
@@ -56,6 +55,7 @@ $(document).ready(() => {
       numString += "0%";
       moodBar.width(numString);
       console.log(moodBar.width());
+      setInterval(increaseMood(10), 5000);
     });
   }
 
@@ -78,13 +78,13 @@ $(document).ready(() => {
     }, 8001);
     console.log("You clicked");
     petStatus.text(petNeeds[2]);
-    increaseMood(10);
+    setInterval(increaseMood(10), 5000);
   });
 
   const sleep = $("#sleep");
 
   sleep.on("click", () => {
-    increaseMood(10);
+    setInterval(increaseMood(10), 5000);
     petStatus.text(petNeeds[3]);
     const petPicSrc = sleepPet.attr("src");
     if (petPicSrc.indexOf("1") !== -1) {
