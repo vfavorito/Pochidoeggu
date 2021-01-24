@@ -9,12 +9,13 @@ $(document).ready(() => {
   let curPet2;
   const loginRedirect = $("#loginHere");
 
+  // every time a radio button is checked update curPet1 and curPet2
   SignUpPet.click(function () {
     curPet1 = this.dataset.string1;
     curPet2 = this.dataset.string2;
     return curPet1, curPet2;
   });
-  // When the form is submitted, we validate there's a username and password entered
+  // When the form is submitted, we validate all fields are filled then send the data to backend
   SignUpForm.on("submit", (event) => {
     event.preventDefault();
     const userData = {
@@ -47,7 +48,7 @@ $(document).ready(() => {
     SignUpPetName.val("");
   });
 
-  // signUp does a post to our "api/signup" route and if successful, redirects us the the members page
+  // signUp does a post to our "api/signup" route and if successful, redirects us the the login page
   const signUp = function (username, password, petname, pet1, pet2) {
     $.post("/api/signup", {
       username: username,
@@ -58,12 +59,14 @@ $(document).ready(() => {
     })
       .then(() => {
         window.location.replace("/");
-        alert("Account Added");
+        alert("Account Created");
       })
       .fail(() => {
-        alert("Username is unavailable");
+        alert("Username is Unavailable");
       });
   };
+
+  // if alreeady have an account button is clicked redirect to login page
   loginRedirect.on("click", () => {
     window.location.replace("/");
   });
