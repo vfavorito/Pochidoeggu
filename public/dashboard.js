@@ -6,7 +6,13 @@ $(document).ready(() => {
     "I'm sleepy now",
     "That was a nice nap. I need food now.",
   ];
-
+  const petHappy = [
+    "Yumm, thank you for feeding me my favorite food",
+    "Thanks for playing with me!",
+  ];
+  //display the virtual pets need
+  //const viewPet = $("#viewPetBtn");
+  const petMood = 10;
   const petStatus = $("#petStatusDiv");
   const sleepPet = $("#sleepPet");
   petStatus.text(petNeeds[0]);
@@ -19,17 +25,11 @@ $(document).ready(() => {
 
   const eatBtn = $("#eat");
   eatBtn.on("click", () => {
-    feedMe();
+    petStatus.text(petHappy[1]);
+    moodTimer(3000, petMood);
   });
 
-  function feedMe() {
-    changePic();
-    petStatus.text(petNeeds[1]);
-    console.log(lastFeed);
-  }
-
-  let i = 0;
-  function increaseMood(int) {
+  function changeMood(int) {
     const num = int;
     let numString = num.toString();
     if (i = 0) {
@@ -54,22 +54,36 @@ $(document).ready(() => {
     $.post("/api/updatePet", sendInt).then(() => {
       numString += "0%";
       moodBar.width(numString);
-      console.log(moodBar.width());
-      setInterval(increaseMood(10), 5000);
+      changePic();
+      petStatus.text(petHappy[1]);
     });
   }
 
-  // const sendName = {
-  //   requester: username,
-  // };
-  // $.get("/api/updatePet", sendName).then((res) => {
-  //   console, log(res);
-  // });
+  function moodTimer(setTime, int) {
+    num = int;
+    const interval1 = setInterval(() => {
+      if (num === 0) {
+        clearInterval(interval1);
+      } else {
+        num--;
+        changeMoodBar(num);
+      }
+    }, setTime);
+  }
 
+  function changeMoodBar(int) {
+    const num = int;
+    console.log(num);
+    let numString = num.toString();
+    numString += "0%";
+    moodBar.width(numString);
+    changeMood(num);
+  }
   const petEl = document.querySelector(".pet");
   const walk = $("#walk");
 
   walk.on("click", () => {
+    moodTimer(3000, petMood);
     console.log(petEl.classList);
     changePic();
     petEl.classList.add("rotator");
@@ -78,13 +92,12 @@ $(document).ready(() => {
     }, 8001);
     console.log("You clicked");
     petStatus.text(petNeeds[2]);
-    setInterval(increaseMood(10), 5000);
   });
 
   const sleep = $("#sleep");
 
   sleep.on("click", () => {
-    setInterval(increaseMood(10), 5000);
+    moodTimer(3000, petMood);
     petStatus.text(petNeeds[3]);
     const petPicSrc = sleepPet.attr("src");
     if (petPicSrc.indexOf("1") !== -1) {

@@ -25,7 +25,7 @@ $(document).ready(() => {
   // login does a post to our "api/login" route and if successful, redirects us to dashboard page
   const login = function (userData) {
     // ------------------------------------------step 1 sends data from html to api-routes
-    console.log(userData);
+    //console.log(userData);
     $.post("/api/login", userData)
       .then(() => {
         window.location.replace("/dashboard");
