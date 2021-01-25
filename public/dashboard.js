@@ -16,6 +16,7 @@ $(document).ready(() => {
   const petStatus = $("#petStatusDiv");
   const sleepPet = $("#sleepPet");
   petStatus.text(petNeeds[0]);
+  //moodTimer(3000, petMood);
 
   const username = function () {
     x = $("#username").text();
@@ -86,6 +87,7 @@ $(document).ready(() => {
     }, 8000);
     console.log("You clicked");
     petStatus.text(petHappy[1]);
+    moodTimer(3000, petMood);
   });
 
   const sleep = $("#sleep");
@@ -98,6 +100,7 @@ $(document).ready(() => {
       setTimeout(() => {
         petStatus.text(petNeeds[1]);
       }, 8000);
+      moodTimer(3000, petMood);
     } else {
       return;
     }
