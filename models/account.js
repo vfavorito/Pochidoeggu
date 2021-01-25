@@ -35,7 +35,7 @@ module.exports = function (sequelize, DataTypes) {
   Account.prototype.validPassword = function (password) {
     return bcrypt.compareSync(password, this.password);
   };
-  // this is saying before a new account is stored in db take their password and scramble it
+  // this is saying before a new account is stored in db take their password and hash it
   Account.addHook("beforeCreate", (account) => {
     account.password = bcrypt.hashSync(
       account.password,

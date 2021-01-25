@@ -7,12 +7,12 @@
         <p>Sign Up!</p>
         <div class="mb-3" class="form-group">
             <label class="form-label" for="SignUpUserName"></label>Username:</label>
-            <input type="text" class="form-control" type="text" id="SignUpUserName" name="name">
+            <input type="text" class="form-control" type="text" id="SignUpUserName" name="name" minlength="5" maxlength="20" required>
             <label class="form-label" for="SignUpPassword">Password:</label>
-            <input type="password" class="form-control" type="text" id="SignUpPassword" name="name">
-            <p id="radioLabel">Pet:</p>
+            <input type="password" class="form-control" type="text" id="SignUpPassword" name="name" required>
+            <p id="radioLabel">Pet Select:</p>
             <div class="btn-group" id="petSelect" data-toggle="buttons">
-                <input class="toggle" type="radio" name="flexRadio" id="cat" data-string1="/assets/images/cat1.png" data-string2="/assets/images/cat2.png">
+                <input class="toggle" type="radio" name="flexRadio" id="cat" data-string1="/assets/images/cat1.png" data-string2="/assets/images/cat2.png" required>
                 <label class="form-check-label" for="cat">
                     Cat
                 </label>
@@ -28,7 +28,7 @@
             </div>
             <br/>
             <label for="petName" class="form-label">Pet Name:</label>
-            <input type="text" class="form-control" type="text" id="petName" name="name">
+            <input type="text" class="form-control" type="text" id="petName" name="name" required>
         </div>
         <button type="submit" class="btn btn-primary" type="submit">Create Account</button>
     </form>
@@ -38,4 +38,3 @@
     </div>
     <script src="/signup.js"></script>
 </body>
-<script src="/signup.js"></script>

@@ -4,6 +4,7 @@ const passport = require("../config/passport");
 const express = require("express");
 const APIrouter = express.Router();
 
+// route to create a new account in database
 APIrouter.post("/api/signup", (req, res) => {
   db.Account.create({
     username: req.body.username,
@@ -20,13 +21,12 @@ APIrouter.post("/api/signup", (req, res) => {
       res.status(400).json(err);
     });
 });
+// route to login, authenticates that username and password exists in our accounts model
 APIrouter.post("/api/login", passport.authenticate("local"), (req, res) => {
-  //-------------------------------------------------------------step 2 sends the userData to passport.js
   res.json({
     username: req.user.username,
     id: req.user.id,
   });
-  //---------------------------------------------step 4 sends a response of the username and id of the account logged in then we go back to login.js
 });
 APIrouter.post("/api/updatePet", (req, res) => {
   console.log(req.body);
@@ -59,4 +59,11 @@ APIrouter.get("/api/updatePet", (req, res) => {
       res.status(400).json(err);
     });
 });
+
+// route that logouts user and turns req.user to false
+APIrouter.get("/api/logout", (req, res) => {
+  req.logout();
+  res.redirect("/");
+});
+
 module.exports = APIrouter;

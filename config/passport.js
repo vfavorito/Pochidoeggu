@@ -7,7 +7,6 @@ const db = require("../models");
 
 // letting passport know we are logging in with a username and password
 passport.use(
-  //-----------------------------------step 3 takes userData and verifys the username and password field is in our model then go back to api-routes
   new LocalStrategy(
     {
       usernameField: "username",
