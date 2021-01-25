@@ -39,4 +39,4 @@ db.sequelize.sync({ force: true }).then(() => {
     console.log("app listening on PORT" + PORT);
   });
 });
-//{force : true}
+//
