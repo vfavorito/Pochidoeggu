@@ -62,6 +62,7 @@ $(document).ready(() => {
         alert("Account Created");
       })
       .fail(() => {
+        console.log("fail hit");
         alert("Username Not Available");
       });
   };
