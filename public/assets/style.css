@@ -112,7 +112,7 @@ input {
   color: #fff;
 }
 
-@-webkit-keyframes walk {
+@keyframes walk {
   0% {
     right: 76%;
   }
@@ -126,7 +126,7 @@ input {
     right:76%;
   }
 }
-@-webkit-keyframes eat {
+@keyframes eat {
   0% {
     transform: translateY(-8%);
   }
@@ -172,7 +172,7 @@ input {
   -webkit-transition: all 1s ease-in-out;
   -moz-transition: all 1s ease-in-out;
   -o-transition: all 1s ease-in-out;
-  -ms-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
   border-radius: 60px;
   transition-duration: 1s;
 }
@@ -181,7 +181,7 @@ input {
   -webkit-transition: all 1s ease-in-out;
   -moz-transition: all 1s ease-in-out;
   -o-transition: all 1s ease-in-out;
-  -ms-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
   border-radius: 60px;
   transition-duration: 1s;
 }

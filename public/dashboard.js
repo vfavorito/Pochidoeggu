@@ -8,7 +8,7 @@ $(document).ready(() => {
   ];
   const petHappy = [
     "*Munch* *Munch Munch Munch* Yumm, thank you!",
-    "Zoom Zoom Zoom Yipee Ki Yay",
+    "Zoom... Zoom Zoom... Yipee Ki Yay!",
     "*Yawn* I'm going... I'm go... *zzzzzzzzz*",
   ];
   //display the virtual pets need
@@ -34,7 +34,7 @@ $(document).ready(() => {
     moodTimer(3000, petMood);
     setTimeout(() => {
       petStatus.text(petNeeds[2]);
-    }, 8000);
+    }, 5000);
   });
 
   function changeMood(int) {
