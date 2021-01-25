@@ -1,17 +1,17 @@
+/* eslint-disable indent */
 $(document).ready(() => {
   const moodBar = $("#myBar");
   const petNeeds = [
-    "I'm hungy. Feed me!!",
-    "Thanks for the food. Now, I have too much energy! Lets go for a walk.",
+    "I'm hungry. Feed me or else!!",
+    "I have too much energy! Lets go for a walk.",
     "I'm sleepy now",
-    "That was a nice nap. I need food now.",
   ];
   const petHappy = [
-    "Yumm, thank you for feeding me my favorite food",
-    "Thanks for playing with me!",
+    "*Munch* *Munch Munch Munch* Yumm, thank you!",
+    "Zoom... Zoom Zoom... Yipee Ki Yay!",
+    "*Yawn* I'm going... I'm go... *zzzzzzzzz*",
   ];
   //display the virtual pets need
-  //const viewPet = $("#viewPetBtn");
   const petMood = 10;
   const petStatus = $("#petStatusDiv");
   const sleepPet = $("#sleepPet");
@@ -25,27 +25,21 @@ $(document).ready(() => {
 
   const eatBtn = $("#eat");
   eatBtn.on("click", () => {
-    petStatus.text(petHappy[1]);
+    changePic();
+    petEl.classList.add("eating");
+    setTimeout(() => {
+      petEl.classList.remove("eating");
+    }, 4001);
+    petStatus.text(petHappy[0]);
     moodTimer(3000, petMood);
+    setTimeout(() => {
+      petStatus.text(petNeeds[2]);
+    }, 5000);
   });
 
   function changeMood(int) {
     const num = int;
     let numString = num.toString();
-    if (i = 0) {
-      i = 10;
-      let width = num;
-      const id = setInterval(frame, 10);
-      function frame() {
-        if (width <= 2) {
-          clearInterval(id);
-          i = 0;
-        } else {
-          width--;
-          moodBar.width(num);
-        }
-      }
-    }
     const sendInt = {
       requester: username,
       value: numString,
@@ -54,8 +48,6 @@ $(document).ready(() => {
     $.post("/api/updatePet", sendInt).then(() => {
       numString += "0%";
       moodBar.width(numString);
-      changePic();
-      petStatus.text(petHappy[1]);
     });
   }
 
@@ -83,25 +75,29 @@ $(document).ready(() => {
   const walk = $("#walk");
 
   walk.on("click", () => {
-    moodTimer(3000, petMood);
     console.log(petEl.classList);
     changePic();
-    petEl.classList.add("rotator");
+    petEl.classList.add("walking");
     setTimeout(() => {
-      petEl.classList.remove("rotator");
+      petEl.classList.remove("walking");
     }, 8001);
+    setTimeout(() => {
+      petStatus.text(petNeeds[0]);
+    }, 8000);
     console.log("You clicked");
-    petStatus.text(petNeeds[2]);
+    petStatus.text(petHappy[1]);
   });
 
   const sleep = $("#sleep");
 
   sleep.on("click", () => {
-    moodTimer(3000, petMood);
-    petStatus.text(petNeeds[3]);
     const petPicSrc = sleepPet.attr("src");
     if (petPicSrc.indexOf("1") !== -1) {
       sleepSrc();
+      petStatus.text(petHappy[2]);
+      setTimeout(() => {
+        petStatus.text(petNeeds[1]);
+      }, 8000);
     } else {
       return;
     }
@@ -110,17 +106,17 @@ $(document).ready(() => {
   function changePic() {
     const petPicSrc = sleepPet.attr("src");
     switch (petPicSrc) {
-    case "/assets/images/cat2.png":
-      sleepPet.attr("src", "/assets/images/cat1.png");
-    break;
+      case "/assets/images/cat2.png":
+        sleepPet.attr("src", "/assets/images/cat1.png");
+        break;
 
-    case "/assets/images/dog2.png":
-      sleepPet.attr("src", "/assets/images/dog1.png");
-      break;
+      case "/assets/images/dog2.png":
+        sleepPet.attr("src", "/assets/images/dog1.png");
+        break;
 
-    case "/assets/images/rabbit2.png":
-      sleepPet.attr("src", "/assets/images/rabbit1.png");
-     break;
+      case "/assets/images/rabbit2.png":
+        sleepPet.attr("src", "/assets/images/rabbit1.png");
+        break;
     }
   }
 
@@ -128,18 +124,18 @@ $(document).ready(() => {
     const petPicSrc = sleepPet.attr("src");
     console.log(petPicSrc);
     switch (petPicSrc) {
-    case "/assets/images/cat1.png":
-      sleepPet.attr("src", "/assets/images/cat2.png");
-      break;
+      case "/assets/images/cat1.png":
+        sleepPet.attr("src", "/assets/images/cat2.png");
+        break;
 
-    case "/assets/images/dog1.png":
-      sleepPet.attr("src", "/assets/images/dog2.png");
-      break;
+      case "/assets/images/dog1.png":
+        sleepPet.attr("src", "/assets/images/dog2.png");
+        break;
 
-    case "/assets/images/rabbit1.png":
-      sleepPet.attr("src", "/assets/images/rabbit2.png");
-      console.log("hit this");
-      break;
+      case "/assets/images/rabbit1.png":
+        sleepPet.attr("src", "/assets/images/rabbit2.png");
+        console.log("hit this");
+        break;
     }
   }
 });

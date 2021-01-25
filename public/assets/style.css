@@ -112,7 +112,7 @@ input {
   color: #fff;
 }
 
-@-webkit-keyframes move {
+@keyframes walk {
   0% {
     right: 76%;
   }
@@ -126,34 +126,66 @@ input {
     right:76%;
   }
 }
+@keyframes eat {
+  0% {
+    transform: translateY(-8%);
+  }
+  16% {
+    transform: translateY(8%);
+  }
+  32% {
+    transform: translateY(-8%);
+  }
+  48%{
+    transform: translateY(8%);
+  }
+  64%{
+    transform: translateY(-8%);
+  }
+  80%{
+    transform: translateY(8%);
+  }
+  100%{
+    transform: translateY(-8%);
+  }
+}
 
-.rotator {
+.walking {
   text-decoration: none;
   padding-right: 20px;
   right: 5%;
   position: absolute;
-  -webkit-animation: move 8s;
-  animation: move 8s;
+  -webkit-animation: walk 8s;
+  animation: walk 8s;
 }
 
-.rotator img {
+.eating {
+  text-decoration: none;
+  padding-right: 20px;
+  right: 76%;
+  position: absolute;
+  -webkit-animation: eat 4s;
+  animation: eat 4s;
+}
+
+.walking img {
   -webkit-transition: all 1s ease-in-out;
   -moz-transition: all 1s ease-in-out;
   -o-transition: all 1s ease-in-out;
-  -ms-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
   border-radius: 60px;
   transition-duration: 1s;
 }
 
-/* .rotator img:hover {
-  box-shadow: 0 3px 15px #000;
-  -webkit-transform: rotate(360deg);
-  -moz-transform: rotate(360deg);
-  -o-transform: rotate(360deg);
-  -ms-transform: rotate(360deg);
-  transform: translate();
-} */
-/* Style to walk cat ends here */
+.eating img {
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+  border-radius: 60px;
+  transition-duration: 1s;
+}
+
 #myProgress {
   margin: auto;
   width: 100%;
@@ -185,4 +217,11 @@ input {
 .form-check-label {
   margin-right: 20px;
   margin-bottom: 10px;
+}
+#logOut{
+  display: inline;
+  position: absolute;
+  right:0;
+  top:0;
+  margin-right:25px;
 }
