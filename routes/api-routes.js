@@ -43,13 +43,17 @@ APIrouter.post("/api/updatePet", (req, res) => {
     res.json(dpUpdate);
   });
 });
-APIrouter.get(".api/updatePet", (req, res) => {
+APIrouter.get("/api/updatePet", (req, res) => {
+  console.log(req.body);
   db.Account.findOne({
     where: {
-      username: req.requester,
+      username: req.body.requester,
     },
   })
-    .then(res.json({ res }))
+    .then((res) => {
+      console.log(res);
+      res.json(res);
+    })
     .catch((err) => {
       console.log(err);
       res.status(400).json(err);
