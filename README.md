@@ -28,16 +28,19 @@ Dashboard image credit to [Victor He](https://unsplash.com/photos/UJh7xpxcpGo)
   npm i
 
   ## Usage Information
-  As a user I would like to ..
+
 
   ## Contribution 
 
 
   ## How to Test 
-  Launch the application on your local server. 
+   
 
   ## License 
-  MIT
+
+
+  ## Recording 
+  [add a recording of me using the application]
 
   ## GitHub Username 
 
