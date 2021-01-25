@@ -2,16 +2,16 @@
 $(document).ready(() => {
   const moodBar = $("#myBar");
   const petNeeds = [
-    "I'm hungy. Feed me!!",
+    "I'm hungry. Feed me or else!!",
     "I have too much energy! Lets go for a walk.",
     "I'm sleepy now",
   ];
   const petHappy = [
-    "Yumm, thank you for feeding me my favorite food",
-    "Thanks for playing with me!",
+    "*Munch* *Munch Munch Munch* Yumm, thank you!",
+    "Zoom Zoom Zoom Yipee Ki Yay",
+    "*Yawn* I'm going... I'm go... *zzzzzzzzz*",
   ];
   //display the virtual pets need
-  //const viewPet = $("#viewPetBtn");
   const petMood = 10;
   const petStatus = $("#petStatusDiv");
   const sleepPet = $("#sleepPet");
@@ -25,8 +25,16 @@ $(document).ready(() => {
 
   const eatBtn = $("#eat");
   eatBtn.on("click", () => {
-    petStatus.text(petHappy[1]);
+    changePic();
+    petEl.classList.add("eating");
+    setTimeout(() => {
+      petEl.classList.remove("eating");
+    }, 4001);
+    petStatus.text(petHappy[0]);
     moodTimer(3000, petMood);
+    setTimeout(() => {
+      petStatus.text(petNeeds[2]);
+    }, 8000);
   });
 
   function changeMood(int) {
@@ -40,8 +48,6 @@ $(document).ready(() => {
     $.post("/api/updatePet", sendInt).then(() => {
       numString += "0%";
       moodBar.width(numString);
-      changePic();
-      petStatus.text(petHappy[1]);
     });
   }
 
@@ -71,12 +77,15 @@ $(document).ready(() => {
   walk.on("click", () => {
     console.log(petEl.classList);
     changePic();
-    petEl.classList.add("rotator");
+    petEl.classList.add("walking");
     setTimeout(() => {
-      petEl.classList.remove("rotator");
+      petEl.classList.remove("walking");
     }, 8001);
+    setTimeout(() => {
+      petStatus.text(petNeeds[0]);
+    }, 8000);
     console.log("You clicked");
-    petStatus.text(petNeeds[1]);
+    petStatus.text(petHappy[1]);
   });
 
   const sleep = $("#sleep");
@@ -85,6 +94,10 @@ $(document).ready(() => {
     const petPicSrc = sleepPet.attr("src");
     if (petPicSrc.indexOf("1") !== -1) {
       sleepSrc();
+      petStatus.text(petHappy[2]);
+      setTimeout(() => {
+        petStatus.text(petNeeds[1]);
+      }, 8000);
     } else {
       return;
     }
