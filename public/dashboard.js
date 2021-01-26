@@ -1,6 +1,8 @@
 /* eslint-disable indent */
 $(document).ready(() => {
   const moodBar = $("#myBar");
+
+  //setting the status of the pet's needs
   const petNeeds = [
     "I'm hungry. Feed me or else!!",
     "I have too much energy! Lets go for a walk.",
@@ -23,6 +25,7 @@ $(document).ready(() => {
     return z[1];
   };
 
+  //creating the eat action for the pet, setting a timer on the mood, and displays the text of what it wants next
   const eatBtn = $("#eat");
   eatBtn.on("click", () => {
     changePic();
@@ -37,6 +40,7 @@ $(document).ready(() => {
     }, 5000);
   });
 
+  //sends the value of the mood bar to the database using a post request
   function changeMood(int) {
     const num = int;
     let numString = num.toString();
@@ -51,6 +55,7 @@ $(document).ready(() => {
     });
   }
 
+  //sets a timer for the mood bar to decrease in width
   function moodTimer(setTime, int) {
     num = int;
     const interval1 = setInterval(() => {
@@ -63,6 +68,7 @@ $(document).ready(() => {
     }, setTime);
   }
 
+  //converts the moodbar value from a percentage to a number to change the value of the width
   function changeMoodBar(int) {
     const num = int;
     console.log(num);
@@ -74,6 +80,7 @@ $(document).ready(() => {
   const petEl = document.querySelector(".pet");
   const walk = $("#walk");
 
+  //creating the walk action for the pet, setting a timer on the mood, and displays the text of what it wants next
   walk.on("click", () => {
     console.log(petEl.classList);
     changePic();
@@ -86,10 +93,11 @@ $(document).ready(() => {
     }, 8000);
     console.log("You clicked");
     petStatus.text(petHappy[1]);
+    moodTimer(3000, petMood);
   });
 
+  //creating the sleep action for the pet, setting a timer on the mood, and displays the text of what it wants next
   const sleep = $("#sleep");
-
   sleep.on("click", () => {
     const petPicSrc = sleepPet.attr("src");
     if (petPicSrc.indexOf("1") !== -1) {
@@ -98,11 +106,13 @@ $(document).ready(() => {
       setTimeout(() => {
         petStatus.text(petNeeds[1]);
       }, 8000);
+      moodTimer(3000, petMood);
     } else {
       return;
     }
   });
 
+  //changes the images of the pet from asleep to awake based off of what was selected in the login
   function changePic() {
     const petPicSrc = sleepPet.attr("src");
     switch (petPicSrc) {
@@ -120,6 +130,7 @@ $(document).ready(() => {
     }
   }
 
+  //changing the images on the sleep function for the pet
   function sleepSrc() {
     const petPicSrc = sleepPet.attr("src");
     console.log(petPicSrc);
