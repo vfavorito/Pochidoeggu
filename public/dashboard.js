@@ -22,19 +22,22 @@ $(document).ready(() => {
     z = x.split(" ");
     return z[1];
   };
-
   const eatBtn = $("#eat");
   eatBtn.on("click", () => {
-    changePic();
-    petEl.classList.add("eating");
-    setTimeout(() => {
-      petEl.classList.remove("eating");
-    }, 4001);
-    petStatus.text(petHappy[0]);
-    moodTimer(3000, petMood);
-    setTimeout(() => {
-      petStatus.text(petNeeds[2]);
-    }, 5000);
+    if (petStatus.text() === "I'm hungry. Feed me or else!!") {
+      moodTimer(3000, petMood);
+      changePic();
+      petEl.classList.add("eating");
+      setTimeout(() => {
+        petEl.classList.remove("eating");
+      }, 4001);
+      petStatus.text(petHappy[0]);
+      setTimeout(() => {
+        petStatus.text(petNeeds[2]);
+      }, 5000);
+    } else {
+      return;
+    }
   });
 
   function changeMood(int) {
@@ -58,46 +61,74 @@ $(document).ready(() => {
         clearInterval(interval1);
       } else {
         num--;
-        changeMoodBar(num);
+        console.log(interval1);
+        changeMood(num);
       }
     }, setTime);
+    eatBtn.on("click", () => {
+      if (petStatus.text() === "*Munch* *Munch Munch Munch* Yumm, thank you!") {
+        clearingInterval(interval1);
+      } else {
+        return;
+      }
+    });
+    walk.on("click", () => {
+      if (petStatus.text() === "Zoom... Zoom Zoom... Yipee Ki Yay!") {
+        clearingInterval(interval1);
+      } else {
+        return;
+      }
+    });
+    sleep.on("click", () => {
+      if (petStatus.text() === "*Yawn* I'm going... I'm go... *zzzzzzzzz*") {
+        clearingInterval(interval1);
+      } else {
+        return;
+      }
+    });
   }
 
-  function changeMoodBar(int) {
-    const num = int;
-    console.log(num);
-    let numString = num.toString();
-    numString += "0%";
-    moodBar.width(numString);
-    changeMood(num);
+  function clearingInterval(interval) {
+    clearInterval(interval);
+    return;
   }
+
   const petEl = document.querySelector(".pet");
   const walk = $("#walk");
 
   walk.on("click", () => {
-    console.log(petEl.classList);
-    changePic();
-    petEl.classList.add("walking");
-    setTimeout(() => {
-      petEl.classList.remove("walking");
-    }, 8001);
-    setTimeout(() => {
-      petStatus.text(petNeeds[0]);
-    }, 8000);
-    console.log("You clicked");
-    petStatus.text(petHappy[1]);
+    if (petStatus.text() === "I have too much energy! Lets go for a walk.") {
+      moodTimer(3000, petMood);
+      changePic();
+      petEl.classList.add("walking");
+      setTimeout(() => {
+        petEl.classList.remove("walking");
+      }, 8001);
+      setTimeout(() => {
+        petStatus.text(petNeeds[0]);
+      }, 8000);
+      console.log("You clicked");
+      petStatus.text(petHappy[1]);
+    } else {
+      return;
+    }
   });
 
   const sleep = $("#sleep");
 
   sleep.on("click", () => {
-    const petPicSrc = sleepPet.attr("src");
-    if (petPicSrc.indexOf("1") !== -1) {
-      sleepSrc();
-      petStatus.text(petHappy[2]);
-      setTimeout(() => {
-        petStatus.text(petNeeds[1]);
-      }, 8000);
+    if (petStatus.text() === "I'm sleepy now") {
+      const petPicSrc = sleepPet.attr("src");
+      if (petPicSrc.indexOf("1") !== -1) {
+        moodTimer(3000, petMood);
+        sleepSrc();
+        petStatus.text(petHappy[2]);
+        setTimeout(() => {
+          petStatus.text(petNeeds[1]);
+        }, 8000);
+      } else {
+        return;
+      }
     } else {
       return;
     }
