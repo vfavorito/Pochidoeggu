@@ -28,10 +28,9 @@
 }
 
 .dashboard_body {
-  height: 100vh;
+  height: 105vh;
   margin: auto;
-  background: url("https://i.imgur.com/XTxA8GT.jpg") no-repeat center center
-    fixed;
+  background: url("https://i.imgur.com/XTxA8GT.jpg") no-repeat center center fixed;
   background-image: url("https://i.imgur.com/XTxA8GT.jpg");
   background-size: cover;
 }
@@ -120,7 +119,7 @@ input {
     right: 100%;
   }
   66% {
-    right:5%;
+    right:0%;
   }
   100%{
     right:76%;
@@ -128,25 +127,25 @@ input {
 }
 @keyframes eat {
   0% {
-    transform: translateY(-8%);
+    transform: translateY(-3%);
   }
   16% {
-    transform: translateY(8%);
+    transform: translateY(3%);
   }
   32% {
-    transform: translateY(-8%);
+    transform: translateY(-3%);
   }
   48%{
-    transform: translateY(8%);
+    transform: translateY(3%);
   }
   64%{
-    transform: translateY(-8%);
+    transform: translateY(-3%);
   }
   80%{
-    transform: translateY(8%);
+    transform: translateY(3%);
   }
   100%{
-    transform: translateY(-8%);
+    transform: translateY(-3%);
   }
 }
 
@@ -162,7 +161,7 @@ input {
 .eating {
   text-decoration: none;
   padding-right: 20px;
-  right: 76%;
+  right: 60%;
   position: absolute;
   -webkit-animation: eat 4s;
   animation: eat 4s;
