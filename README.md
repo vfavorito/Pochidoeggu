@@ -63,7 +63,8 @@ Recording[]
 - Create a multi player element to the application
 
 ## License
-
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<br/>
 © 2021 Vincent Favorito <br/>
 © 2021 Ricky Cohen <br/>
 © 2021 Romina Aguado<br/>
