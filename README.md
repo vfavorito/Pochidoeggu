@@ -9,7 +9,7 @@ Real pets are a hastle with our application you are able to care for a virtual p
 - [Credits](#Credits)
 - [Badges](#Credits)
 - [Contributors](#Contributors)
-- [Future Development](#Future Development)
+- [Future Development](#FutureDevelopment)
 - [License](#License)
 
 ## Demo
