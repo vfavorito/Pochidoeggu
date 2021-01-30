@@ -28,7 +28,7 @@ Recording[]
 
 ### Heroku Link
 
-(https://pochidoeggu.herokuapp.com/)
+[Pochidoeggu](https://pochidoeggu.herokuapp.com/)
 
 ## Credits
 
